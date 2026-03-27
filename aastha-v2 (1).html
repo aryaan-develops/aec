@@ -1,0 +1,2533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aastha Education Consultancy — Shape Your Future</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --lem: #FFFACD;
+      /* Lemon Chiffon */
+      --lem2: #FFF4A0;
+      --lem3: #FFE566;
+      --uv: #5B2D8E;
+      /* Ultra Violet */
+      --uv2: #7B3FAE;
+      --uv3: #3D1A6E;
+      --burg: #6B1A2A;
+      /* Deep Burgundy */
+      --burg2: #8B2535;
+      --burg3: #4A0F1A;
+      --sand: #C8A96E;
+      /* Golden Sand */
+      --sand2: #E0C080;
+      --sand3: #9A7A40;
+      --ink: #1A0A10;
+      --smoke: #F7F4EF;
+      --white: #FFFFFF;
+      --shadow-uv: rgba(91, 45, 142, 0.22);
+      --shadow-burg: rgba(107, 26, 42, 0.22);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--smoke);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    /* CURSOR GLOW */
+    .cursor-glow {
+      position: fixed;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(91, 45, 142, 0.07) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+      transform: translate(-50%, -50%);
+      transition: left .1s, top .1s;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 200;
+      background: rgba(247, 244, 239, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(91, 45, 142, 0.12);
+      padding: 0 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .nav-logo-ring {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--uv), var(--burg));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--lem);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: .5px;
+    }
+
+    .nav-logo-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--uv3);
+      line-height: 1.2;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #5A4060;
+      font-size: .82rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      transition: color .2s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--sand);
+      transition: width .25s;
+    }
+
+    .nav-links a:hover {
+      color: var(--uv);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--uv), var(--burg));
+      color: var(--lem);
+      padding: 10px 24px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      box-shadow: 0 4px 20px var(--shadow-uv);
+      transition: all .25s;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px var(--shadow-uv);
+    }
+
+    /* HERO */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(155deg, var(--uv3) 0%, var(--burg3) 45%, #2A0A18 100%);
+      display: flex;
+      align-items: center;
+      padding: 100px 5% 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+    }
+
+    .orb1 {
+      width: 500px;
+      height: 500px;
+      background: rgba(91, 45, 142, 0.45);
+      top: -100px;
+      right: -100px;
+      animation: orbFloat 8s ease-in-out infinite;
+    }
+
+    .orb2 {
+      width: 350px;
+      height: 350px;
+      background: rgba(200, 169, 110, 0.25);
+      bottom: -80px;
+      left: 10%;
+      animation: orbFloat 11s ease-in-out 2s infinite reverse;
+    }
+
+    .orb3 {
+      width: 250px;
+      height: 250px;
+      background: rgba(255, 250, 205, 0.1);
+      top: 40%;
+      left: 40%;
+      animation: orbFloat 7s ease-in-out 1s infinite;
+    }
+
+    @keyframes orbFloat {
+
+      0%,
+      100% {
+        transform: translate(0, 0);
+      }
+
+      33% {
+        transform: translate(20px, -30px);
+      }
+
+      66% {
+        transform: translate(-15px, 20px);
+      }
+    }
+
+    .hero-particles {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .particle {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--sand2);
+      opacity: 0;
+      animation: particleDrift linear infinite;
+    }
+
+    @keyframes particleDrift {
+      0% {
+        opacity: 0;
+        transform: translateY(0);
+      }
+
+      20% {
+        opacity: .7;
+      }
+
+      80% {
+        opacity: .4;
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateY(-120px);
+      }
+    }
+
+    .hero-content {
+      max-width: 640px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 250, 205, 0.12);
+      border: 1px solid rgba(255, 250, 205, 0.3);
+      color: var(--lem);
+      padding: 7px 18px;
+      border-radius: 40px;
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      animation: fadeSlideDown .8s ease both;
+    }
+
+    @keyframes fadeSlideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-16px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--sand);
+      animation: pulse 2s ease infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      50% {
+        transform: scale(1.6);
+        opacity: .5;
+      }
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 6.5vw, 5.2rem);
+      font-weight: 700;
+      line-height: 1.08;
+      color: var(--white);
+      margin-bottom: 22px;
+      animation: fadeSlideUp .9s .2s ease both;
+    }
+
+    .hero-title .gold {
+      color: var(--sand);
+    }
+
+    .hero-title .accent {
+      color: var(--lem);
+    }
+
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: rgba(255, 250, 205, 0.75);
+      line-height: 1.8;
+      margin-bottom: 36px;
+      font-weight: 300;
+      animation: fadeSlideUp .9s .4s ease both;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 56px;
+      animation: fadeSlideUp .9s .6s ease both;
+    }
+
+    .btn-glow {
+      background: linear-gradient(135deg, var(--sand), var(--sand2));
+      color: var(--burg3);
+      padding: 15px 34px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: .9rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      box-shadow: 0 6px 30px rgba(200, 169, 110, 0.5);
+      transition: all .3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-glow::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, .2), transparent);
+      opacity: 0;
+      transition: opacity .3s;
+    }
+
+    .btn-glow:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(200, 169, 110, 0.65);
+    }
+
+    .btn-glow:hover::before {
+      opacity: 1;
+    }
+
+    .btn-ghost {
+      border: 1.5px solid rgba(255, 250, 205, 0.4);
+      color: var(--lem);
+      padding: 14px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: .9rem;
+      font-weight: 600;
+      transition: all .3s;
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255, 250, 205, 0.12);
+      border-color: rgba(255, 250, 205, .7);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      animation: fadeSlideUp .9s .8s ease both;
+    }
+
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--sand);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: .72rem;
+      color: rgba(255, 250, 205, .6);
+      margin-top: 5px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .stat-divider {
+      width: 1px;
+      background: rgba(255, 250, 205, .15);
+      align-self: stretch;
+    }
+
+    /* FLOATING CARDS on hero */
+    .hero-float-area {
+      position: absolute;
+      right: 4%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: clamp(260px, 32vw, 400px);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .float-card {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 250, 205, 0.18);
+      border-radius: 20px;
+      padding: 22px 24px;
+      animation: floatY 4s ease-in-out infinite;
+    }
+
+    .float-card:nth-child(2) {
+      animation-delay: 1.3s;
+    }
+
+    .float-card:nth-child(3) {
+      animation-delay: 2.1s;
+    }
+
+    @keyframes floatY {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .fcard-label {
+      font-size: .65rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--sand);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .fcard-title {
+      color: var(--white);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .progress-wrap {
+      background: rgba(255, 255, 255, .12);
+      border-radius: 6px;
+      height: 7px;
+      margin-bottom: 6px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      border-radius: 6px;
+      background: linear-gradient(90deg, var(--sand), var(--lem));
+    }
+
+    .prow {
+      display: flex;
+      justify-content: space-between;
+      font-size: .72rem;
+      color: rgba(255, 250, 205, .7);
+      margin-bottom: 4px;
+    }
+
+    .rating-big {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--sand);
+      line-height: 1;
+    }
+
+    .rating-stars {
+      color: var(--sand);
+      font-size: .95rem;
+      letter-spacing: 3px;
+      margin: 4px 0;
+    }
+
+    .rating-sub {
+      font-size: .72rem;
+      color: rgba(255, 250, 205, .65);
+    }
+
+    /* SECTION BASE */
+    section {
+      padding: 96px 5%;
+    }
+
+    .s-label {
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: var(--uv2);
+      font-weight: 700;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .s-label::before {
+      content: '';
+      width: 28px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--uv), var(--sand));
+    }
+
+    .s-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+      font-weight: 700;
+      line-height: 1.12;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+
+    .s-title .em {
+      color: var(--uv);
+    }
+
+    .s-title .em2 {
+      color: var(--burg);
+    }
+
+    .s-sub {
+      color: #6A5070;
+      font-size: 1rem;
+      line-height: 1.8;
+      max-width: 540px;
+      font-weight: 300;
+    }
+
+    /* SERVICES */
+    #services {
+      background: var(--white);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 24px;
+      margin-top: 52px;
+    }
+
+    .svc-card {
+      background: var(--smoke);
+      border-radius: 20px;
+      padding: 32px 28px;
+      border: 1px solid rgba(91, 45, 142, 0.08);
+      transition: all .35s;
+      cursor: default;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .svc-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--uv3), var(--burg3));
+      opacity: 0;
+      transition: opacity .35s;
+      border-radius: 20px;
+    }
+
+    .svc-card:hover::before {
+      opacity: 1;
+    }
+
+    .svc-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px var(--shadow-uv);
+    }
+
+    .svc-card:hover .svc-icon {
+      background: rgba(255, 250, 205, .15);
+    }
+
+    .svc-card:hover h3,
+    .svc-card:hover p {
+      color: var(--lem);
+    }
+
+    .svc-card:hover h3 {
+      color: var(--sand);
+    }
+
+    .svc-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      background: rgba(91, 45, 142, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 22px;
+      position: relative;
+      z-index: 1;
+      transition: background .35s;
+    }
+
+    .svc-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--ink);
+      position: relative;
+      z-index: 1;
+      transition: color .35s;
+    }
+
+    .svc-card p {
+      font-size: .87rem;
+      color: #6A5070;
+      line-height: 1.7;
+      position: relative;
+      z-index: 1;
+      transition: color .35s;
+    }
+
+    .svc-arrow {
+      position: absolute;
+      bottom: 24px;
+      right: 24px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(200, 169, 110, .15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--sand);
+      font-size: .9rem;
+      opacity: 0;
+      transition: all .35s;
+      z-index: 1;
+    }
+
+    .svc-card:hover .svc-arrow {
+      opacity: 1;
+      transform: translate(-2px, -2px);
+    }
+
+    /* WHY US */
+    #why {
+      background: var(--lem);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #why::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: rgba(91, 45, 142, 0.06);
+      pointer-events: none;
+    }
+
+    #why .s-title .em {
+      color: var(--burg);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+      margin-top: 52px;
+    }
+
+    .why-card {
+      background: var(--white);
+      border-radius: 18px;
+      padding: 28px 26px;
+      border: 1px solid rgba(107, 26, 42, 0.1);
+      transition: all .3s;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .why-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 40px rgba(107, 26, 42, 0.14);
+    }
+
+    .why-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--sand3);
+      line-height: 1;
+      flex-shrink: 0;
+      min-width: 48px;
+    }
+
+    .why-card h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--burg3);
+      margin-bottom: 7px;
+    }
+
+    .why-card p {
+      font-size: .85rem;
+      color: #6A4A50;
+      line-height: 1.65;
+    }
+
+    /* COURSES */
+    #courses {
+      background: linear-gradient(160deg, #1C0A28 0%, var(--burg3) 100%);
+    }
+
+    #courses .s-label {
+      color: var(--sand);
+    }
+
+    #courses .s-label::before {
+      background: linear-gradient(90deg, var(--sand), transparent);
+    }
+
+    #courses .s-title {
+      color: var(--white);
+    }
+
+    #courses .s-title .em {
+      color: var(--lem);
+    }
+
+    #courses .s-sub {
+      color: rgba(255, 250, 205, .65);
+    }
+
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 22px;
+      margin-top: 52px;
+    }
+
+    .course-card {
+      border-radius: 20px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(255, 250, 205, .1);
+      transition: all .35s;
+      cursor: default;
+    }
+
+    .course-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(200, 169, 110, .5);
+      box-shadow: 0 16px 50px rgba(0, 0, 0, .4);
+    }
+
+    .course-top {
+      padding: 28px 24px 22px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .course-top::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .05);
+    }
+
+    .course-tag {
+      font-size: .65rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      background: rgba(200, 169, 110, .25);
+      color: var(--sand);
+      padding: 5px 12px;
+      border-radius: 30px;
+      display: inline-block;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .course-top h3 {
+      color: var(--white);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .course-body {
+      padding: 20px 24px 24px;
+    }
+
+    .course-meta {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+
+    .course-meta span {
+      font-size: .75rem;
+      color: rgba(255, 250, 205, .55);
+    }
+
+    .course-desc {
+      font-size: .83rem;
+      color: rgba(255, 250, 205, .55);
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+
+    .course-link {
+      font-size: .8rem;
+      color: var(--sand);
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap .2s;
+    }
+
+    .course-link:hover {
+      gap: 12px;
+    }
+
+    /* PROCESS */
+    #process {
+      background: var(--smoke);
+    }
+
+    .steps-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0;
+      margin-top: 52px;
+      position: relative;
+    }
+
+    .steps-row::before {
+      content: '';
+      position: absolute;
+      top: 34px;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--uv2), var(--sand), var(--burg2));
+      z-index: 0;
+    }
+
+    .step {
+      text-align: center;
+      padding: 0 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-circle {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      margin: 0 auto 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      transition: all .3s;
+    }
+
+    .step:nth-child(1) .step-circle {
+      background: linear-gradient(135deg, var(--uv), var(--uv2));
+      color: var(--lem);
+      box-shadow: 0 6px 24px var(--shadow-uv);
+    }
+
+    .step:nth-child(2) .step-circle {
+      background: linear-gradient(135deg, var(--sand3), var(--sand));
+      color: var(--white);
+      box-shadow: 0 6px 24px rgba(200, 169, 110, .4);
+    }
+
+    .step:nth-child(3) .step-circle {
+      background: linear-gradient(135deg, var(--burg), var(--burg2));
+      color: var(--lem);
+      box-shadow: 0 6px 24px var(--shadow-burg);
+    }
+
+    .step:nth-child(4) .step-circle {
+      background: linear-gradient(135deg, var(--uv3), var(--burg3));
+      color: var(--sand);
+      box-shadow: 0 6px 24px rgba(0, 0, 0, .3);
+    }
+
+    .step:hover .step-circle {
+      transform: scale(1.1) translateY(-4px);
+    }
+
+    .step h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--ink);
+    }
+
+    .step p {
+      font-size: .82rem;
+      color: #6A5070;
+      line-height: 1.6;
+    }
+
+    /* TESTIMONIALS */
+    #testimonials {
+      background: var(--white);
+    }
+
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 24px;
+      margin-top: 52px;
+    }
+
+    .testi-card {
+      border-radius: 20px;
+      padding: 30px 28px;
+      position: relative;
+      overflow: hidden;
+      transition: all .35s;
+    }
+
+    .testi-card:nth-child(odd) {
+      background: linear-gradient(135deg, var(--uv3), var(--uv));
+      color: var(--white);
+    }
+
+    .testi-card:nth-child(even) {
+      background: linear-gradient(135deg, var(--burg3), var(--burg));
+      color: var(--white);
+    }
+
+    .testi-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, .25);
+    }
+
+    .testi-quote {
+      font-size: 3rem;
+      color: var(--sand);
+      opacity: .5;
+      font-family: 'Cormorant Garamond', serif;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .testi-text {
+      font-size: .9rem;
+      line-height: 1.75;
+      margin-bottom: 20px;
+      color: rgba(255, 250, 205, .85);
+    }
+
+    .testi-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-top: 1px solid rgba(255, 250, 205, .15);
+      padding-top: 18px;
+    }
+
+    .testi-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(200, 169, 110, .3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--sand);
+      font-size: .9rem;
+      flex-shrink: 0;
+    }
+
+    .testi-name {
+      font-weight: 700;
+      font-size: .9rem;
+      color: var(--sand);
+    }
+
+    .testi-role {
+      font-size: .74rem;
+      color: rgba(255, 250, 205, .6);
+    }
+
+    /* CONTACT FORM - Psychology Optimized */
+    #contact {
+      background: var(--lem);
+    }
+
+    #contact .s-label::before {
+      background: linear-gradient(90deg, var(--burg), var(--sand));
+    }
+
+    #contact .s-label {
+      color: var(--burg);
+    }
+
+    #contact .s-title .em2 {
+      color: var(--uv);
+    }
+
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 52px;
+      margin-top: 52px;
+      align-items: start;
+    }
+
+    .contact-left h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--burg3);
+      margin-bottom: 24px;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      margin-bottom: 22px;
+    }
+
+    .c-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--uv), var(--burg));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .c-icon-label {
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--uv3);
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+
+    .c-icon-val {
+      font-size: .92rem;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    /* Psychological trust indicators */
+    .trust-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .trust-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--white);
+      border-radius: 30px;
+      padding: 6px 14px;
+      border: 1px solid rgba(107, 26, 42, .12);
+      font-size: .72rem;
+      font-weight: 600;
+      color: var(--burg3);
+    }
+
+    .trust-badge span {
+      font-size: .9rem;
+    }
+
+    /* Form */
+    .psy-form {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 36px;
+      box-shadow: 0 16px 60px rgba(91, 45, 142, .12);
+    }
+
+    /* Progress micro-bar */
+    .form-progress {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 24px;
+    }
+
+    .fp-step {
+      height: 4px;
+      border-radius: 4px;
+      flex: 1;
+      background: var(--smoke);
+      transition: background .3s;
+    }
+
+    .fp-step.active {
+      background: linear-gradient(90deg, var(--uv), var(--sand));
+    }
+
+    /* Social proof at top */
+    .form-social-proof {
+      background: linear-gradient(90deg, rgba(91, 45, 142, .08), rgba(200, 169, 110, .08));
+      border-radius: 12px;
+      padding: 12px 16px;
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: .8rem;
+      color: var(--burg3);
+    }
+
+    .form-social-proof strong {
+      color: var(--uv);
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .05em;
+      color: #5A4060;
+      margin-bottom: 7px;
+      text-transform: uppercase;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      border: 1.5px solid rgba(91, 45, 142, .15);
+      border-radius: 12px;
+      padding: 13px 16px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: .9rem;
+      color: var(--ink);
+      outline: none;
+      transition: all .25s;
+      background: var(--smoke);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--uv);
+      background: var(--white);
+      box-shadow: 0 0 0 3px rgba(91, 45, 142, .1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .form-group select {
+      cursor: pointer;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    /* Urgency banner */
+    .urgency-banner {
+      background: linear-gradient(90deg, var(--burg3), var(--burg));
+      color: var(--lem);
+      border-radius: 12px;
+      padding: 12px 16px;
+      margin-bottom: 18px;
+      font-size: .8rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .urgency-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--sand);
+      flex-shrink: 0;
+      animation: pulse 1.5s infinite;
+    }
+
+    /* Submit */
+    .form-submit {
+      width: 100%;
+      background: linear-gradient(135deg, var(--uv), var(--burg));
+      color: var(--lem);
+      border: none;
+      border-radius: 50px;
+      padding: 16px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: .95rem;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      box-shadow: 0 8px 28px var(--shadow-uv);
+      transition: all .3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .form-submit::after {
+      content: '→';
+      margin-left: 10px;
+      transition: margin-left .2s;
+    }
+
+    .form-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 36px var(--shadow-uv);
+    }
+
+    .form-submit:hover::after {
+      margin-left: 16px;
+    }
+
+    .form-disclaimer {
+      font-size: .72rem;
+      color: #9A8AA0;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    /* FLOATING QUICK-CONNECT SIDEBAR */
+    .quick-btns {
+      position: fixed;
+      right: 24px;
+      bottom: 100px;
+      z-index: 300;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .qbtn {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, .25);
+      transition: all .3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .qbtn:hover {
+      transform: scale(1.15) translateX(-4px);
+    }
+
+    .qbtn-label {
+      position: absolute;
+      right: 64px;
+      background: var(--ink);
+      color: var(--white);
+      padding: 5px 12px;
+      border-radius: 8px;
+      font-size: .75rem;
+      font-weight: 600;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: all .3s;
+    }
+
+    .qbtn:hover .qbtn-label {
+      opacity: 1;
+      right: 68px;
+    }
+
+    .qbtn-wa {
+      background: linear-gradient(135deg, #25D366, #128C7E);
+    }
+
+    .qbtn-ig {
+      background: linear-gradient(135deg, #F58529, #DD2A7B, #8134AF);
+    }
+
+    .qbtn-mail {
+      background: linear-gradient(135deg, var(--uv), var(--burg));
+    }
+
+    .qbtn svg {
+      width: 24px;
+      height: 24px;
+      fill: var(--white);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--ink);
+      color: rgba(255, 250, 205, .6);
+      padding: 52px 5% 30px;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 36px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+
+    .footer-brand h2 {
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--lem);
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+    }
+
+    .footer-brand p {
+      font-size: .84rem;
+      line-height: 1.65;
+      max-width: 240px;
+    }
+
+    .footer-col h4 {
+      color: var(--sand);
+      font-size: .75rem;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-bottom: 14px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col li {
+      margin-bottom: 10px;
+    }
+
+    .footer-col a {
+      color: rgba(255, 250, 205, .55);
+      text-decoration: none;
+      font-size: .84rem;
+      transition: color .2s;
+    }
+
+    .footer-col a:hover {
+      color: var(--sand);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 250, 205, .08);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: .79rem;
+    }
+
+    .footer-bottom .heart {
+      color: var(--sand);
+    }
+
+    /* SCROLL ANIMATIONS */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-36px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal-left.in {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(36px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal-right.in {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* COUNTER ANIMATION */
+    .counter-wrap {
+      display: inline-block;
+    }
+
+    /* ── HAMBURGER MENU ── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+      background: none;
+      border: none;
+      z-index: 210;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--uv3);
+      border-radius: 2px;
+      transition: all .3s;
+    }
+
+    .nav-hamburger.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .nav-hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-hamburger.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .mobile-menu {
+      position: fixed;
+      top: 70px;
+      left: 0;
+      right: 0;
+      background: rgba(247, 244, 239, 0.98);
+      backdrop-filter: blur(20px);
+      z-index: 190;
+      padding: 0 5%;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .4s ease, padding .3s ease;
+      border-bottom: 1px solid rgba(91, 45, 142, 0.1);
+    }
+
+    .mobile-menu.open {
+      max-height: 420px;
+      padding: 20px 5% 28px;
+    }
+
+    .mobile-menu ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .mobile-menu ul li a {
+      display: block;
+      padding: 13px 0;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--uv3);
+      text-decoration: none;
+      letter-spacing: .04em;
+      border-bottom: 1px solid rgba(91, 45, 142, 0.08);
+      transition: color .2s;
+    }
+
+    .mobile-menu ul li:last-child a {
+      border-bottom: none;
+    }
+
+    .mobile-menu ul li a:hover {
+      color: var(--burg);
+    }
+
+    .mobile-menu .mob-cta {
+      display: block;
+      margin-top: 18px;
+      background: linear-gradient(135deg, var(--uv), var(--burg));
+      color: var(--lem);
+      padding: 14px;
+      border-radius: 50px;
+      text-align: center;
+      text-decoration: none;
+      font-size: .9rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      box-shadow: 0 4px 20px var(--shadow-uv);
+    }
+
+    /* ── TABLET (≤1024px) ── */
+    @media(max-width:1024px) {
+      .hero-float-area {
+        width: clamp(220px, 28vw, 320px);
+        right: 2%;
+      }
+
+      .hero-content {
+        max-width: 520px;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .courses-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .testi-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* ── MOBILE NAV (≤860px) ── */
+    @media(max-width:860px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-hamburger {
+        display: flex;
+      }
+    }
+
+    /* ── TABLET/SMALL (≤768px) ── */
+    @media(max-width:768px) {
+      nav {
+        padding: 0 4%;
+      }
+
+      .nav-logo-text {
+        font-size: .9rem;
+      }
+
+      .nav-cta {
+        padding: 8px 16px;
+        font-size: .75rem;
+      }
+
+      section {
+        padding: 70px 4%;
+      }
+
+      #hero {
+        padding: 90px 4% 60px;
+        align-items: flex-start;
+      }
+
+      .hero-float-area {
+        display: none;
+      }
+
+      .hero-content {
+        max-width: 100%;
+      }
+
+      .hero-title {
+        font-size: clamp(2.4rem, 7vw, 3.5rem);
+      }
+
+      .hero-sub {
+        font-size: .95rem;
+      }
+
+      .hero-stats {
+        gap: 20px;
+      }
+
+      .stat-num {
+        font-size: 2rem;
+      }
+
+      .stat-divider {
+        display: none;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .courses-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+
+      .steps-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px 16px;
+      }
+
+      .steps-row::before {
+        display: none;
+      }
+
+      .testi-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-wrap {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .psy-form {
+        padding: 24px 20px;
+      }
+
+      .footer-top {
+        flex-direction: column;
+        gap: 28px;
+      }
+
+      .footer-col {
+        min-width: 140px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .quick-btns {
+        right: 14px;
+        bottom: 80px;
+      }
+
+      .qbtn {
+        width: 46px;
+        height: 46px;
+      }
+
+      .qbtn-label {
+        display: none;
+      }
+    }
+
+    /* ── MOBILE (≤480px) ── */
+    @media(max-width:480px) {
+      section {
+        padding: 56px 4%;
+      }
+
+      nav {
+        height: 62px;
+      }
+
+      .mobile-menu {
+        top: 62px;
+      }
+
+      .nav-logo-ring {
+        width: 38px;
+        height: 38px;
+        font-size: .85rem;
+      }
+
+      .nav-logo-text {
+        font-size: .82rem;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .hero-title {
+        font-size: clamp(2rem, 9vw, 2.8rem);
+        line-height: 1.1;
+      }
+
+      .hero-badge {
+        font-size: .68rem;
+        padding: 6px 14px;
+      }
+
+      .hero-sub {
+        font-size: .88rem;
+      }
+
+      .hero-btns {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .btn-glow,
+      .btn-ghost {
+        text-align: center;
+        padding: 14px 24px;
+      }
+
+      .hero-stats {
+        gap: 16px;
+      }
+
+      .stat-num {
+        font-size: 1.8rem;
+      }
+
+      .stat-label {
+        font-size: .65rem;
+      }
+
+      .s-title {
+        font-size: clamp(1.8rem, 7vw, 2.4rem);
+      }
+
+      .s-sub {
+        font-size: .9rem;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .svc-card {
+        padding: 24px 20px;
+      }
+
+      .why-card {
+        padding: 22px 18px;
+      }
+
+      .courses-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .steps-row {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .testi-card {
+        padding: 24px 20px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .urgency-banner {
+        font-size: .74rem;
+        padding: 10px 13px;
+      }
+
+      .form-social-proof {
+        font-size: .74rem;
+        padding: 10px 13px;
+      }
+
+      .trust-badges {
+        gap: 7px;
+      }
+
+      .trust-badge {
+        font-size: .68rem;
+        padding: 5px 11px;
+      }
+
+      .psy-form {
+        padding: 20px 16px;
+        border-radius: 18px;
+      }
+
+      .form-submit {
+        font-size: .85rem;
+        padding: 14px;
+      }
+
+      footer {
+        padding: 40px 4% 24px;
+      }
+
+      .quick-btns {
+        right: 10px;
+        bottom: 70px;
+        gap: 9px;
+      }
+
+      .qbtn {
+        width: 42px;
+        height: 42px;
+      }
+
+      .qbtn svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      .contact-left h3 {
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- CURSOR GLOW -->
+  <div class="cursor-glow" id="cg"></div>
+
+  <!-- FLOATING QUICK CONNECT -->
+  <div class="quick-btns">
+    <a href="https://wa.me/91XXXXXXXXXX" class="qbtn qbtn-wa" target="_blank">
+      <div class="qbtn-label">Chat on WhatsApp</div>
+      <svg viewBox="0 0 24 24">
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+      </svg>
+    </a>
+    <a href="https://instagram.com/aasthaeducation" class="qbtn qbtn-ig" target="_blank">
+      <div class="qbtn-label">Follow on Instagram</div>
+      <svg viewBox="0 0 24 24">
+        <path
+          d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+      </svg>
+    </a>
+    <a href="mailto:info@aasthaeducation.in" class="qbtn qbtn-mail">
+      <div class="qbtn-label">Send us an Email</div>
+      <svg viewBox="0 0 24 24">
+        <path
+          d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+      </svg>
+    </a>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#">
+      <div class="nav-logo-ring">AEC</div>
+      <div class="nav-logo-text">Aastha Education<br>Consultancy</div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#courses">Streams</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <a href="#contact" class="nav-cta">Free Counseling</a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#services" onclick="closeMobileMenu()">Services</a></li>
+      <li><a href="#courses" onclick="closeMobileMenu()">Streams</a></li>
+      <li><a href="#why" onclick="closeMobileMenu()">Why Us</a></li>
+      <li><a href="#testimonials" onclick="closeMobileMenu()">Reviews</a></li>
+      <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
+    </ul>
+    <a href="#contact" class="mob-cta" onclick="closeMobileMenu()">📞 Book Free Counseling</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <!-- Ambient orbs -->
+    <div class="hero-orb orb1"></div>
+    <div class="hero-orb orb2"></div>
+    <div class="hero-orb orb3"></div>
+    <!-- Particles -->
+    <div class="hero-particles" id="particles"></div>
+    <div class="hero-content">
+      <div class="hero-badge"><span class="badge-dot"></span> Trusted Education Partner · Jamshedpur</div>
+      <h1 class="hero-title">
+        Your Dream College<br>
+        Starts with <span class="gold">Expert</span><br>
+        <span class="accent">Career Guidance</span>
+      </h1>
+      <p class="hero-sub">Aastha Education Consultancy — specialists in career counseling and direct admission to
+        India's top colleges. 15+ years of turning student dreams into reality.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-glow">Book Free Session</a>
+        <a href="#courses" class="btn-ghost">Explore Streams →</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num counter-wrap" data-target="5000">0+</div>
+          <div class="stat-label">Students Placed</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <div class="stat-num counter-wrap" data-target="200">0+</div>
+          <div class="stat-label">Partner Colleges</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <div class="stat-num counter-wrap" data-target="15">0+</div>
+          <div class="stat-label">Years of Excellence</div>
+        </div>
+      </div>
+    </div>
+    <!-- Floating cards -->
+    <div class="hero-float-area">
+      <div class="float-card">
+        <div class="fcard-label">2024–25 Admission Success</div>
+        <div class="fcard-title">Stream Performance</div>
+        <div class="prow"><span>Engineering</span><span style="color:var(--sand)">96%</span></div>
+        <div class="progress-wrap">
+          <div class="progress-bar" style="width:96%"></div>
+        </div>
+        <div class="prow"><span>Medical</span><span style="color:var(--sand)">91%</span></div>
+        <div class="progress-wrap">
+          <div class="progress-bar" style="width:91%"></div>
+        </div>
+        <div class="prow"><span>Management</span><span style="color:var(--sand)">89%</span></div>
+        <div class="progress-wrap" style="margin-bottom:0">
+          <div class="progress-bar" style="width:89%"></div>
+        </div>
+      </div>
+      <div class="float-card" style="display:flex;gap:20px;align-items:center">
+        <div>
+          <div class="rating-big">4.9</div>
+          <div class="rating-stars">★★★★★</div>
+          <div class="rating-sub">Student Rating</div>
+        </div>
+        <div
+          style="border-left:1px solid rgba(255,250,205,.15);padding-left:20px;font-size:.78rem;color:rgba(255,250,205,.65);line-height:1.7">
+          <div style="color:var(--sand);font-weight:700;margin-bottom:4px">Top Rated</div>
+          Education Consultancy<br>in Jharkhand
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="reveal">
+      <div class="s-label">What We Offer</div>
+      <h2 class="s-title">Comprehensive <span class="em">Career Services</span></h2>
+      <p class="s-sub">Everything you need — from choosing the right stream to securing your dream college seat.</p>
+    </div>
+    <div class="services-grid">
+      <div class="svc-card reveal">
+        <div class="svc-icon">🎯</div>
+        <h3>Career Counseling</h3>
+        <p>Psychometric assessments and personalized one-on-one sessions to map the ideal career path for you.</p>
+        <div class="svc-arrow">→</div>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-icon">🏫</div>
+        <h3>Direct Admission</h3>
+        <p>Hassle-free direct admission to 200+ reputed engineering, medical, management, and law colleges nationwide.
+        </p>
+        <div class="svc-arrow">→</div>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-icon">📝</div>
+        <h3>Application Support</h3>
+        <p>End-to-end documentation, entrance exam guidance, college shortlisting, and fee-payment assistance.</p>
+        <div class="svc-arrow">→</div>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-icon">🏅</div>
+        <h3>Scholarship Guidance</h3>
+        <p>Identify and apply for scholarships and financial aid programs to significantly reduce your educational
+          costs.</p>
+        <div class="svc-arrow">→</div>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-icon">🌏</div>
+        <h3>Study Abroad</h3>
+        <p>International admissions to universities in UK, USA, Canada, Australia and more — with full visa support.</p>
+        <div class="svc-arrow">→</div>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-icon">📊</div>
+        <h3>Entrance Exam Prep</h3>
+        <p>Structured guidance and resources for JEE, NEET, CAT, CLAT and all major competitive examinations.</p>
+        <div class="svc-arrow">→</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section id="why">
+    <div class="reveal">
+      <div class="s-label">The Aastha Edge</div>
+      <h2 class="s-title">Why 5,000+ Students <span class="em">Trust Us</span></h2>
+      <p class="s-sub">We're not just consultants — we're partners who stay with you until your dream is achieved.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-num">01</div>
+        <div>
+          <h4>15+ Years of Expertise</h4>
+          <p>Seasoned counselors with deep expertise across engineering, medical, management, law and arts streams.</p>
+        </div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-num">02</div>
+        <div>
+          <h4>200+ College Network</h4>
+          <p>Strong institutional ties ensure genuine direct admission opportunities across every major stream.</p>
+        </div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-num">03</div>
+        <div>
+          <h4>Fully Personalized</h4>
+          <p>Every student is unique. We tailor guidance to your aptitude, interests, location, and budget.</p>
+        </div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-num">04</div>
+        <div>
+          <h4>100% Transparent</h4>
+          <p>No hidden charges ever. Complete transparency in all services, fees, and admission processes.</p>
+        </div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-num">05</div>
+        <div>
+          <h4>Post-Admission Support</h4>
+          <p>We stay with students after admission — hostel guidance, orientation, and smooth college transition.</p>
+        </div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-num">06</div>
+        <div>
+          <h4>Free Initial Consultation</h4>
+          <p>Our first session is always free. Come in, talk to us, and leave with clarity — no commitment needed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COURSES -->
+  <section id="courses">
+    <div class="reveal">
+      <div class="s-label">Admission Streams</div>
+      <h2 class="s-title">We Cover <span class="em">Every Stream</span></h2>
+      <p class="s-sub">From science to management to the arts — expert guidance across all major educational paths.</p>
+    </div>
+    <div class="courses-grid">
+      <div class="course-card reveal" style="--top-bg:linear-gradient(135deg,#3D1A6E,#6B1A2A)">
+        <div class="course-top" style="background:linear-gradient(135deg,#3D1A6E,#6B1A2A)">
+          <div class="course-tag">Science</div>
+          <h3>Engineering & Technology</h3>
+        </div>
+        <div class="course-body">
+          <div class="course-meta"><span>🏫 50+ Colleges</span><span>⭐ JEE / State CET</span></div>
+          <p class="course-desc">B.Tech/B.E. across all specializations. JEE counseling, state quota, direct and NRI
+            admissions.</p>
+          <a href="#contact" class="course-link">Enquire Now →</a>
+        </div>
+      </div>
+      <div class="course-card reveal">
+        <div class="course-top" style="background:linear-gradient(135deg,#5B2D8E,#4A0F1A)">
+          <div class="course-tag">Medical</div>
+          <h3>MBBS, BDS & Allied Health</h3>
+        </div>
+        <div class="course-body">
+          <div class="course-meta"><span>🏫 40+ Colleges</span><span>⭐ NEET Guidance</span></div>
+          <p class="course-desc">NEET counseling, management quota, deemed universities, and international MBBS
+            placements.</p>
+          <a href="#contact" class="course-link">Enquire Now →</a>
+        </div>
+      </div>
+      <div class="course-card reveal">
+        <div class="course-top" style="background:linear-gradient(135deg,#7A2A0A,#3D1A6E)">
+          <div class="course-tag">Management</div>
+          <h3>MBA & BBA Programs</h3>
+        </div>
+        <div class="course-body">
+          <div class="course-meta"><span>🏫 60+ Colleges</span><span>⭐ CAT / MAT</span></div>
+          <p class="course-desc">Top B-school admissions, CAT/MAT coaching, lateral entry for working professionals.</p>
+          <a href="#contact" class="course-link">Enquire Now →</a>
+        </div>
+      </div>
+      <div class="course-card reveal">
+        <div class="course-top" style="background:linear-gradient(135deg,#1A4A5A,#5B2D8E)">
+          <div class="course-tag">Law</div>
+          <h3>LLB & Integrated Law</h3>
+        </div>
+        <div class="course-body">
+          <div class="course-meta"><span>🏫 25+ Colleges</span><span>⭐ CLAT Prep</span></div>
+          <p class="course-desc">3-year LLB, 5-year integrated programs, CLAT guidance and top NLU counseling.</p>
+          <a href="#contact" class="course-link">Enquire Now →</a>
+        </div>
+      </div>
+      <div class="course-card reveal">
+        <div class="course-top" style="background:linear-gradient(135deg,#1A4A2A,#6B1A2A)">
+          <div class="course-tag">Design & Arts</div>
+          <h3>Architecture, Design & Fine Arts</h3>
+        </div>
+        <div class="course-body">
+          <div class="course-meta"><span>🏫 20+ Colleges</span><span>⭐ NATA / NID</span></div>
+          <p class="course-desc">B.Arch, B.Des, NID/NIFT admissions and comprehensive portfolio preparation.</p>
+          <a href="#contact" class="course-link">Enquire Now →</a>
+        </div>
+      </div>
+      <div class="course-card reveal">
+        <div class="course-top" style="background:linear-gradient(135deg,#1A305A,#5B2D8E)">
+          <div class="course-tag">International</div>
+          <h3>Study Abroad Programs</h3>
+        </div>
+        <div class="course-body">
+          <div class="course-meta"><span>🌍 10+ Countries</span><span>⭐ Visa Support</span></div>
+          <p class="course-desc">Universities in USA, UK, Canada, Australia — IELTS/TOEFL guidance and visa assistance
+            included.</p>
+          <a href="#contact" class="course-link">Enquire Now →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="reveal">
+      <div class="s-label">How It Works</div>
+      <h2 class="s-title">Your Journey in <span class="em2">4 Simple Steps</span></h2>
+      <p class="s-sub">We've simplified the admission journey so you can focus on your future.</p>
+    </div>
+    <div class="steps-row">
+      <div class="step reveal">
+        <div class="step-circle">01</div>
+        <h4>Free Consultation</h4>
+        <p>Meet our expert counselor — no cost, no commitment — just clarity about your options.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-circle">02</div>
+        <h4>Career Assessment</h4>
+        <p>Psychometric & aptitude tests help us pinpoint the streams best suited to your strengths.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-circle">03</div>
+        <h4>College Shortlist</h4>
+        <p>We shortlist the best colleges matching your profile, location preference, and budget.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-circle">04</div>
+        <h4>Secure Admission</h4>
+        <p>We handle all documentation and liaising until your seat is 100% confirmed.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="reveal">
+      <div class="s-label">Student Stories</div>
+      <h2 class="s-title">Real Results, Real <span class="em">Success</span></h2>
+      <p class="s-sub">Hear from students and parents who trusted Aastha with their most important decision.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Thanks to Aastha, I secured a seat at VIT Vellore through direct admission despite a
+          borderline JEE score. They were honest, efficient, and genuinely cared about my future.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">RK</div>
+          <div>
+            <div class="testi-name">Rohit Kumar</div>
+            <div class="testi-role">B.Tech CSE, VIT Vellore</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">The career counseling session changed everything for me. I was torn between medicine and
+          engineering. AEC helped me choose confidently — now in 2nd year MBBS and loving it!</p>
+        <div class="testi-author">
+          <div class="testi-avatar">PD</div>
+          <div>
+            <div class="testi-name">Priya Das</div>
+            <div class="testi-role">MBBS, KIMS Bhubaneswar</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">As parents, we were overwhelmed by the admission process. Aastha's team guided us step by
+          step, handled everything, and our son got into a top MBA college. Absolutely recommend!</p>
+        <div class="testi-author">
+          <div class="testi-avatar">SM</div>
+          <div>
+            <div class="testi-name">Sunita Mahato</div>
+            <div class="testi-role">Parent — MBA, XLRI Jamshedpur</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT - Psychology Optimized -->
+  <section id="contact">
+    <div class="reveal">
+      <div class="s-label">Get Started Today</div>
+      <h2 class="s-title">Book Your <span class="em2">Free</span> Counseling Session</h2>
+      <p class="s-sub">No fees, no commitment — just a conversation that could change your life.</p>
+    </div>
+    <div class="contact-wrap">
+      <div class="reveal-left">
+        <h3>We're here to guide you</h3>
+        <div class="contact-item">
+          <div class="c-icon">📍</div>
+          <div>
+            <div class="c-icon-label">Visit Us</div>
+            <div class="c-icon-val">Aastha Education Consultancy<br>Jamshedpur, Jharkhand — 831001</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="c-icon">📞</div>
+          <div>
+            <div class="c-icon-label">Call / WhatsApp</div>
+            <div class="c-icon-val">+91 XXXXX XXXXX</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="c-icon">✉️</div>
+          <div>
+            <div class="c-icon-label">Email Us</div>
+            <div class="c-icon-val">info@aasthaeducation.in</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="c-icon">🕐</div>
+          <div>
+            <div class="c-icon-label">Office Hours</div>
+            <div class="c-icon-val">Mon–Sat: 9:00 AM – 6:00 PM</div>
+          </div>
+        </div>
+        <!-- Trust Badges -->
+        <div class="trust-badges">
+          <div class="trust-badge"><span>✅</span> 5,000+ Placed</div>
+          <div class="trust-badge"><span>🔒</span> 100% Confidential</div>
+          <div class="trust-badge"><span>🆓</span> Free First Session</div>
+          <div class="trust-badge"><span>⭐</span> 4.9 Rated</div>
+          <div class="trust-badge"><span>🏅</span> 15+ Yrs Experience</div>
+        </div>
+      </div>
+      <div class="reveal-right">
+        <div class="psy-form">
+          <!-- Progress Indicator (Psychology: shows low effort) -->
+          <div class="form-progress">
+            <div class="fp-step active"></div>
+            <div class="fp-step active"></div>
+            <div class="fp-step"></div>
+            <div class="fp-step"></div>
+          </div>
+          <!-- Social Proof (Psychology: herd behavior) -->
+          <div class="form-social-proof">
+            <span style="font-size:1.2rem">👥</span>
+            <span><strong>23 students</strong> from Jamshedpur got admitted this month through Aastha!</span>
+          </div>
+          <!-- Urgency (Psychology: scarcity) -->
+          <div class="urgency-banner">
+            <div class="urgency-dot"></div>
+            <span>⚡ 2024–25 admissions closing soon — Limited counseling slots available this week!</span>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Student's Name *</label>
+              <input type="text" placeholder="Your full name" required />
+            </div>
+            <div class="form-group">
+              <label>Phone / WhatsApp *</label>
+              <input type="tel" placeholder="+91 XXXXX XXXXX" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="your@email.com (optional)" />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Dream Stream *</label>
+              <select required>
+                <option value="" disabled selected>What do you want to study?</option>
+                <option>Engineering / B.Tech</option>
+                <option>Medical / MBBS</option>
+                <option>Management / MBA</option>
+                <option>Law / LLB</option>
+                <option>Design / Architecture</option>
+                <option>Study Abroad</option>
+                <option>Not sure — need guidance</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Current Class</label>
+              <select>
+                <option value="" disabled selected>Your current class?</option>
+                <option>Class 10th</option>
+                <option>Class 11th</option>
+                <option>Class 12th</option>
+                <option>12th Passed</option>
+                <option>Graduate</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Your Goal / Question (Optional)</label>
+            <textarea
+              placeholder="Tell us your dream, confusion, or specific question — we'll guide you perfectly…"></textarea>
+          </div>
+          <!-- Commitment / CTA -->
+          <button class="form-submit">Get My Free Counseling Session</button>
+          <!-- Reassurance (Psychology: remove risk) -->
+          <p class="form-disclaimer">🔒 Your information is 100% confidential. No spam, no sales calls — just expert
+            guidance. Free, always.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h2>Aastha Education Consultancy</h2>
+        <p>Empowering students across Jamshedpur and India to make informed career decisions and secure top college
+          admissions.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">Career Counseling</a></li>
+          <li><a href="#">Direct Admission</a></li>
+          <li><a href="#">Study Abroad</a></li>
+          <li><a href="#">Scholarship Help</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Streams</h4>
+        <ul>
+          <li><a href="#">Engineering</a></li>
+          <li><a href="#">Medical</a></li>
+          <li><a href="#">Management</a></li>
+          <li><a href="#">Law & Design</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Reach</h4>
+        <ul>
+          <li><a href="https://wa.me/91XXXXXXXXXX">💬 WhatsApp Us</a></li>
+          <li><a href="https://instagram.com/aasthaeducation">📸 Instagram</a></li>
+          <li><a href="mailto:info@aasthaeducation.in">✉️ Email Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 <span style="color:var(--sand)">Aastha Education Consultancy</span>. All Rights Reserved.</p>
+      <p>Made with <span class="heart">♥</span> for the students of Jamshedpur</p>
+    </div>
+  </footer>
+
+  <script>
+    /* CURSOR GLOW */
+    document.addEventListener('mousemove', e => {
+      const cg = document.getElementById('cg');
+      cg.style.left = e.clientX + 'px'; cg.style.top = e.clientY + 'px';
+    });
+
+    /* PARTICLES */
+    const pc = document.getElementById('particles');
+    for (let i = 0; i < 30; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      p.style.left = Math.random() * 100 + '%';
+      p.style.top = Math.random() * 100 + '%';
+      p.style.animationDuration = (4 + Math.random() * 8) + 's';
+      p.style.animationDelay = (Math.random() * 8) + 's';
+      p.style.width = p.style.height = (2 + Math.random() * 3) + 'px';
+      p.style.opacity = Math.random() * .7;
+      pc.appendChild(p);
+    }
+
+    /* SCROLL REVEAL */
+    const ro = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) setTimeout(() => e.target.classList.add('in'), 60); });
+    }, { threshold: .1 });
+    document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => ro.observe(el));
+
+    /* COUNTER */
+    function animateCounter(el, target, suffix) {
+      let start = 0; const dur = 2200; const step = dur / target;
+      const interval = setInterval(() => {
+        start += Math.ceil(target / 60);
+        if (start >= target) { start = target; clearInterval(interval); }
+        el.textContent = start.toLocaleString() + suffix;
+      }, step);
+    }
+    const cro = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const el = e.target;
+          const t = parseInt(el.dataset.target);
+          animateCounter(el, t, '+');
+          cro.unobserve(el);
+        }
+      });
+    }, { threshold: .5 });
+    document.querySelectorAll('.counter-wrap').forEach(el => cro.observe(el));
+
+    /* HAMBURGER */
+    const hb = document.getElementById('hamburger');
+    const mm = document.getElementById('mobileMenu');
+    hb.addEventListener('click', () => { hb.classList.toggle('open'); mm.classList.toggle('open'); });
+    function closeMobileMenu() { hb.classList.remove('open'); mm.classList.remove('open'); }
+    document.addEventListener('click', e => { if (!hb.contains(e.target) && !mm.contains(e.target)) { closeMobileMenu(); } });
+
+    /* FORM PROGRESS */
+    const inputs = document.querySelectorAll('.psy-form input, .psy-form select, .psy-form textarea');
+    const steps = document.querySelectorAll('.fp-step');
+    inputs.forEach(inp => {
+      inp.addEventListener('input', () => {
+        let filled = 0;
+        inputs.forEach(i => { if (i.value.trim()) filled++; });
+        const pct = Math.round((filled / inputs.length) * steps.length);
+        steps.forEach((s, i) => { s.classList.toggle('active', i < Math.max(2, pct)); });
+      });
+    });
+  </script>
+</body>
+
+</html>

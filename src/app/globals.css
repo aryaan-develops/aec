@@ -1,0 +1,217 @@
+/* 
+  Global Styles for Aastha Education Consultancy
+  Modern, Premium, and Responsive Design
+  Inspired by the AEC Brand Identity
+*/
+
+:root {
+  --lem: #FFFACD;
+  /* Lemon Chiffon */
+  --lem2: #FFF4A0;
+  --lem3: #FFE566;
+  --uv: #5B2D8E;
+  /* Ultra Violet */
+  --uv2: #7B3FAE;
+  --uv3: #3D1A6E;
+  --burg: #6B1A2A;
+  /* Deep Burgundy */
+  --burg2: #8B2535;
+  --burg3: #4A0F1A;
+  --sand: #C8A96E;
+  /* Golden Sand */
+  --sand2: #E0C080;
+  --sand3: #9A7A40;
+  --ink: #1A0A10;
+  --smoke: #F7F4EF;
+  --white: #FFFFFF;
+  --shadow-uv: rgba(91, 45, 142, 0.22);
+  --shadow-burg: rgba(107, 26, 42, 0.22);
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--smoke);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* Base Layout */
+main {
+  min-height: 100vh;
+}
+
+/* Section Common Styling */
+section {
+  padding: 96px 5%;
+  position: relative;
+}
+
+.s-label {
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: var(--uv2);
+  font-weight: 700;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.s-label::before {
+  content: '';
+  width: 28px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--uv), var(--sand));
+}
+
+.s-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1.12;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.s-title .em {
+  color: var(--uv);
+}
+
+.s-title .em2 {
+  color: var(--burg);
+}
+
+.s-sub {
+  color: #6A5070;
+  font-size: 1rem;
+  line-height: 1.8;
+  max-width: 540px;
+  font-weight: 300;
+}
+
+/* Animations */
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0); }
+  33% { transform: translate(20px, -30px); }
+  66% { transform: translate(-15px, 20px); }
+}
+
+@keyframes particleDrift {
+  0% { opacity: 0; transform: translateY(0); }
+  20% { opacity: .7; }
+  80% { opacity: .4; }
+  100% { opacity: 0; transform: translateY(-120px); }
+}
+
+@keyframes fadeSlideDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.6); opacity: .5; }
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--smoke);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--uv), var(--burg));
+  border-radius: 10px;
+  border: 3px solid var(--smoke);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--uv);
+}
+
+/* Cursor Glow */
+.cursor-glow {
+  position: fixed;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(91, 45, 142, 0.12) 0%, rgba(107, 26, 42, 0.05) 40%, transparent 70%);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s;
+  mix-blend-mode: multiply;
+}
+
+/* Utilities for React components */
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-36px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+.reveal-left.in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(36px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+.reveal-right.in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Mobile Responsive Adjustments */
+@media(max-width:768px) {
+  section {
+    padding: 70px 4%;
+  }
+}
+
+@media(max-width:480px) {
+  section {
+    padding: 56px 4%;
+  }
+}

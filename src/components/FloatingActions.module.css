@@ -1,0 +1,57 @@
+.quickBtns {
+    position: fixed;
+    right: 24px;
+    bottom: 40px;
+    z-index: 300;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.qbtn {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s;
+    position: relative;
+}
+
+.qbtn:hover {
+    transform: scale(1.15) translateX(-4px);
+}
+
+.label {
+    position: absolute;
+    right: 64px;
+    background: var(--ink);
+    color: var(--white);
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-size: .75rem;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s;
+}
+
+.qbtn:hover .label {
+    opacity: 1;
+    right: 68px;
+}
+
+.wa { background: linear-gradient(135deg, #25D366, #128C7E); }
+.mail { background: linear-gradient(135deg, var(--uv), var(--burg)); }
+
+.icon { width: 24px; height: 24px; fill: white; }
+
+@media (max-width: 768px) {
+    .label { display: none; }
+    .quickBtns { right: 15px; bottom: 30px; }
+    .qbtn { width: 46px; height: 46px; }
+}

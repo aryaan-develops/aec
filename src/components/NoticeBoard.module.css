@@ -1,0 +1,133 @@
+.noticeBoardSection {
+    padding: 80px 20px;
+    background: #f8f9fa;
+    position: relative;
+    overflow: hidden;
+}
+
+.boardContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.08);
+    overflow: hidden;
+    position: relative;
+}
+
+.boardHeader {
+    background: linear-gradient(135deg, #1a1a1a, #3a0ca3);
+    padding: 60px 40px;
+    text-align: center;
+    color: #fff;
+    position: relative;
+}
+
+.pin {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    opacity: 0.5;
+}
+
+.boardHeader h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+}
+
+.boardHeader p {
+    color: rgba(255,255,255,0.7);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.boardBody {
+    padding: 60px 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    background: url('https://www.transparenttextures.com/patterns/notebook.png');
+}
+
+.noticeCard {
+    background: #fff;
+    border-radius: 15px;
+    padding: 30px;
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    position: relative;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.noticeCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.date {
+    font-size: 0.8rem;
+    color: #666;
+    font-weight: 600;
+}
+
+.typeBadge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.urgent .typeBadge { background: #ff4d4d15; color: #ff4d4d; border: 1px solid #ff4d4d30; }
+.info .typeBadge { background: #3a0ca310; color: #3a0ca3; border: 1px solid #3a0ca320; }
+.new .typeBadge { background: #4cc9f015; color: #4cc9f0; border: 1px solid #4cc9f030; }
+
+.noticeTitle {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #1a1a1a;
+    line-height: 1.25;
+}
+
+.noticeText {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.boardFooter {
+    padding: 20px 40px;
+    background: #fdfdfd;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    text-align: right;
+    font-size: 0.8rem;
+    color: #999;
+    font-style: italic;
+}
+
+.empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px;
+    color: #999;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .boardHeader { padding: 40px 20px; }
+    .boardHeader h2 { font-size: 1.8rem; }
+    .boardBody { padding: 30px 20px; }
+}

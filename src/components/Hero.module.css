@@ -1,0 +1,94 @@
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 100px 5% 60px;
+    position: relative;
+    overflow: hidden;
+    background: #1a0b16;
+}
+
+.bgContainer {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.bgImage {
+    width: 100%;
+    height: 100%;
+    background-image: url('/bg1.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.45;
+    animation: slowZoom 40s infinite alternate linear;
+}
+
+.bgOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(26,11,22,0.6), rgba(58,12,163,0.25));
+    z-index: 1;
+}
+
+@keyframes slowZoom {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.15); }
+}
+
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.orb1 { width: 500px; height: 500px; background: rgba(91, 45, 142, 0.45); top: -100px; right: -100px; animation: orbFloat 8s ease-in-out infinite; }
+.orb2 { width: 350px; height: 350px; background: rgba(200, 169, 110, 0.25); bottom: -80px; left: 10%; animation: orbFloat 11s ease-in-out 2s infinite reverse; }
+.orb3 { width: 250px; height: 250px; background: rgba(255, 250, 205, 0.1); top: 40%; left: 40%; animation: orbFloat 7s ease-in-out 1s infinite; }
+
+.particles { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.particle { position: absolute; width: 3px; height: 3px; border-radius: 50%; background: var(--sand2); opacity: 0; animation: particleDrift linear infinite; }
+
+.content { max-width: 640px; position: relative; z-index: 2; color: #fff; }
+.badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255, 250, 205, 0.12); border: 1px solid rgba(255, 250, 205, 0.3); color: var(--lem); padding: 7px 18px; border-radius: 40px; font-size: .75rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 28px; animation: fadeSlideDown .8s ease both; }
+.dot { width: 7px; height: 7px; border-radius: 50%; background: var(--sand); animation: pulse 2s ease infinite; }
+
+.title { font-family: var(--font-serif); font-size: clamp(3rem, 6.5vw, 5.2rem); font-weight: 700; line-height: 1.08; color: var(--white); margin-bottom: 22px; animation: fadeSlideUp .9s .2s ease both; }
+.gold { color: var(--sand); }
+.accent { color: var(--lem); }
+
+.sub { font-size: 1.05rem; color: rgba(255, 250, 205, 0.75); line-height: 1.8; margin-bottom: 36px; font-weight: 300; animation: fadeSlideUp .9s .4s ease both; }
+
+.btns { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 56px; animation: fadeSlideUp .9s .6s ease both; }
+.btnGlow { background: linear-gradient(135deg, var(--sand), var(--sand2)); color: var(--burg3); padding: 15px 34px; border-radius: 50px; text-decoration: none; font-size: .9rem; font-weight: 700; letter-spacing: .04em; box-shadow: 0 6px 30px rgba(200, 169, 110, 0.5); transition: all 0.3s; position: relative; overflow: hidden; }
+.btnGlow:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(200, 169, 110, 0.7); }
+.btnGhost { border: 1.5px solid rgba(255, 250, 205, 0.4); color: var(--lem); padding: 14px 32px; border-radius: 50px; text-decoration: none; font-size: .9rem; font-weight: 600; transition: all 0.3s; }
+.btnGhost:hover { background: rgba(255, 250, 205, 0.12); border-color: rgba(255, 250, 205, .7); }
+
+.stats { display: flex; gap: 40px; flex-wrap: wrap; animation: fadeSlideUp .9s .8s ease both; }
+.statNum { font-family: var(--font-serif); font-size: 2.5rem; font-weight: 700; color: var(--sand); line-height: 1; }
+.statLabel { font-size: .72rem; color: rgba(255, 250, 205, .6); margin-top: 5px; letter-spacing: .08em; text-transform: uppercase; }
+.divider { width: 1px; background: rgba(255, 250, 205, .15); align-self: stretch; }
+
+.floatArea { position: absolute; right: 4%; top: 45%; transform: translateY(-50%); width: clamp(260px, 32vw, 400px); z-index: 2; display: flex; flex-direction: column; gap: 16px; pointer-events: none; }
+.floatCard { background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(16px); border: 1px solid rgba(255, 250, 205, 0.18); border-radius: 20px; padding: 22px 24px; animation: floatY 4s ease-in-out infinite; }
+.fLabel { font-size: .65rem; text-transform: uppercase; letter-spacing: .12em; color: var(--sand); font-weight: 700; margin-bottom: 8px; }
+.fTitle { color: var(--white); font-family: var(--font-serif); font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; }
+.pWrap { background: rgba(255, 255, 255, .12); border-radius: 6px; height: 7px; margin-bottom: 6px; overflow: hidden; }
+.pBar { height: 100%; border-radius: 6px; background: linear-gradient(90deg, var(--sand), var(--lem)); }
+.prow { display: flex; justify-content: space-between; font-size: .72rem; color: rgba(255, 250, 205, .7); margin-bottom: 4px; }
+
+.ratingCard { display: flex; gap: 20px; align-items: center; animation-delay: 1.5s; }
+.rBig { font-family: var(--font-serif); font-size: 2.4rem; font-weight: 700; color: var(--sand); line-height: 1; }
+.rStars { color: var(--sand); font-size: .95rem; letter-spacing: 3px; margin: 4px 0; }
+.rSub { font-size: .72rem; color: rgba(255, 250, 205, .65); }
+.rInfo { border-left: 1px solid rgba(255,250,205,.15); padding-left: 20px; font-size: .78rem; color: rgba(255,250,205,.65); line-height: 1.7; }
+
+@media (max-width: 1024px) { .floatArea { width: 300px; display: none; } }
+@media (max-width: 768px) {
+    .hero { padding-top: 120px; align-items: flex-start; }
+    .content { max-width: 100%; }
+    .title { font-size: clamp(2.4rem, 7vw, 3.5rem); }
+}

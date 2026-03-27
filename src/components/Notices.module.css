@@ -1,0 +1,90 @@
+.noticeBar {
+    background: #1a0a10;
+    color: white;
+    padding: 14px 5%;
+    position: relative;
+    z-index: 1500;
+    border-bottom: 2px solid var(--sand);
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.label {
+    background: var(--burg);
+    color: var(--lem);
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 4px 12px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    letter-spacing: 0.1em;
+}
+
+.pulse {
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    animation: blink 1s infinite alternate;
+}
+
+@keyframes blink {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0.4; transform: scale(1.5); }
+}
+
+.contentWrap {
+    flex: 1;
+    height: 24px;
+    position: relative;
+    overflow: hidden;
+}
+
+.noticeItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+.noticeItem strong {
+    color: var(--sand);
+}
+
+.noticeItem p {
+    color: rgba(255,255,255,0.7);
+}
+
+.tag {
+    font-size: 0.6rem;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: 700;
+}
+
+.urgent { background: #fee2e2; color: #dc2626; }
+.info { background: #e0f2fe; color: #0369a1; }
+.new { background: #fef9c3; color: #854d0e; }
+
+.controls {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.4);
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .container { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .contentWrap { width: 100%; }
+    .noticeBar { padding: 10px 5%; }
+}
