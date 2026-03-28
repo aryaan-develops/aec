@@ -1,11 +1,16 @@
 .contact {
-    background: #FFFEF5; /* Warmer, softer classic background */
+    background: #FFFEF5;
+    /* Warmer, softer classic background */
     padding: 100px 5%;
     position: relative;
     border-top: 1px solid rgba(139, 37, 53, 0.05);
 }
 
-.heading { margin-bottom: 60px; text-align: center; }
+.heading {
+    margin-bottom: 60px;
+    text-align: center;
+}
+
 .pIntro {
     color: #4A3A4A;
     font-size: 1.1rem;
@@ -52,7 +57,7 @@
     font-size: 1.2rem;
     flex-shrink: 0;
     color: var(--uv);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
 }
 
 .iLabel {
@@ -64,13 +69,30 @@
     margin-bottom: 5px;
 }
 
-.iVal { font-size: 1.05rem; color: var(--ink); font-weight: 500; line-height: 1.5; }
+.iVal {
+    font-size: 1.05rem;
+    color: var(--ink);
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.iVal a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: 0.3s;
+}
+
+.iVal a:hover {
+    color: var(--uv);
+    border-bottom-color: var(--uv);
+}
 
 .professionalTrust {
     margin-top: 40px;
     background: white;
     padding: 24px;
-    border: 1px solid rgba(0,0,0,0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
     border-left: 4px solid var(--sand);
 }
 
@@ -84,7 +106,7 @@
 
 .divider {
     height: 1px;
-    background: rgba(0,0,0,0.05);
+    background: rgba(0, 0, 0, 0.05);
     margin: 15px 0;
 }
 
@@ -111,8 +133,8 @@
 .formContainer {
     background: white;
     padding: 40px;
-    border: 1px solid rgba(0,0,0,0.08);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.04);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.04);
 }
 
 .formTitle {
@@ -124,7 +146,10 @@
     padding-left: 15px;
 }
 
-.fGroup { margin-bottom: 22px; }
+.fGroup {
+    margin-bottom: 22px;
+}
+
 .fGroup label {
     display: block;
     font-size: .8rem;
@@ -133,7 +158,9 @@
     margin-bottom: 8px;
 }
 
-.fGroup input, .fGroup select, .fGroup textarea {
+.fGroup input,
+.fGroup select,
+.fGroup textarea {
     width: 100%;
     border: 1px solid #E0E0E0;
     padding: 14px 18px;
@@ -145,7 +172,9 @@
     transition: 0.3s;
 }
 
-.fGroup input:focus, .fGroup select:focus, .fGroup textarea:focus {
+.fGroup input:focus,
+.fGroup select:focus,
+.fGroup textarea:focus {
     border-color: var(--uv);
     background: white;
 }
@@ -203,10 +232,18 @@
 }
 
 @media (max-width: 900px) {
-    .wrap { grid-template-columns: 1fr; gap: 50px; }
+    .wrap {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
 }
 
 @media (max-width: 480px) {
-    .fRow { grid-template-columns: 1fr; }
-    .formContainer { padding: 25px; }
+    .fRow {
+        grid-template-columns: 1fr;
+    }
+
+    .formContainer {
+        padding: 25px;
+    }
 }

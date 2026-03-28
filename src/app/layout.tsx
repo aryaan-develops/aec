@@ -21,7 +21,7 @@ export const viewport = {
 
 export const metadata: Metadata = {
   title: "Aastha Education Consultancy — Shape Your Future",
-  description: "Aastha Education Consultancy — specialists in career counseling and direct admission to India's top colleges. 15+ years of turning student dreams into reality. Explore careers in Engineering, Medical, Management, and more.",
+  description: "Aastha Education Consultancy — specialists in career counseling and direct admission to India's top colleges. 20+ years of turning student dreams into reality. Explore careers in Engineering, Medical, Management, and more.",
   keywords: "education consultancy, career counseling, admissions, Jamshedpur, AEC, Aastha Education, college admission, Engineering, Medical, MBBS, MBA",
   authors: [{ name: "Aastha Education Consultancy" }],
   icons: {
@@ -36,7 +36,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${cormorant.variable} ${jakarta.variable}`}>
         {children}
       </body>

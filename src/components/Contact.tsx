@@ -22,7 +22,7 @@ const Contact: React.FC = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        
+
         try {
             await fetch('/api/leads', {
                 method: 'POST',
@@ -62,7 +62,7 @@ const Contact: React.FC = () => {
     return (
         <section id="contact" className={styles.contact}>
             <div className={styles.heading}>
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
@@ -70,7 +70,7 @@ const Contact: React.FC = () => {
                 >
                     Get Started Today
                 </motion.div>
-                <motion.h2 
+                <motion.h2
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -78,7 +78,7 @@ const Contact: React.FC = () => {
                 >
                     Book Your <span className="em2">Free</span> Counseling Session
                 </motion.h2>
-                <motion.p 
+                <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -90,7 +90,7 @@ const Contact: React.FC = () => {
             </div>
 
             <div className={styles.wrap}>
-                <motion.div 
+                <motion.div
                     className={styles.left}
                     variants={containerVariants}
                     initial="hidden"
@@ -109,14 +109,14 @@ const Contact: React.FC = () => {
                         <div className={styles.iconClassic}>📞</div>
                         <div>
                             <div className={styles.iLabel}>Direct Helpline</div>
-                            <div className={styles.iVal}>+91 92641 99286</div>
+                            <div className={styles.iVal}><a href="tel:+919264199286">+91 92641 99286</a></div>
                         </div>
                     </motion.div>
                     <motion.div className={styles.item} variants={itemVariants}>
                         <div className={styles.iconClassic}>✉️</div>
                         <div>
                             <div className={styles.iLabel}>Official Email</div>
-                            <div className={styles.iVal}>aasthaedu.2017@gmail.com</div>
+                            <div className={styles.iVal}><a href="mailto:aasthaedu.2017@gmail.com">aasthaedu.2017@gmail.com</a></div>
                         </div>
                     </motion.div>
 
@@ -131,7 +131,7 @@ const Contact: React.FC = () => {
                     </div>
                 </motion.div>
 
-                <motion.div 
+                <motion.div
                     className={styles.right}
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -140,21 +140,21 @@ const Contact: React.FC = () => {
                     <div className={styles.formContainer}>
                         <AnimatePresence mode="wait">
                             {!submitted ? (
-                                <motion.form 
+                                <motion.form
                                     key="form"
-                                    className={styles.form} 
+                                    className={styles.form}
                                     onSubmit={handleSubmit}
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
                                     exit={{ opacity: 0 }}
                                 >
                                     <h4 className={styles.formTitle}>Consultation Request</h4>
-                                    
+
                                     <div className={styles.fGroup}>
                                         <label>Full Name</label>
                                         <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="e.g. Rahul Sharma" required />
                                     </div>
-                                    
+
                                     <div className={styles.fRow}>
                                         <div className={styles.fGroup}>
                                             <label>Phone Number</label>
@@ -195,8 +195,8 @@ const Contact: React.FC = () => {
                                         <textarea name="goal" value={formData.goal} onChange={handleChange} placeholder="Describe your career goals or specific concerns..." rows={3}></textarea>
                                     </div>
 
-                                    <motion.button 
-                                        type="submit" 
+                                    <motion.button
+                                        type="submit"
                                         className={styles.classicSubmit}
                                         whileHover={{ backgroundColor: 'var(--uv3)' }}
                                         whileTap={{ scale: 0.98 }}
@@ -206,7 +206,7 @@ const Contact: React.FC = () => {
                                     <p className={styles.securityText}>🔒 All information is kept strictly confidential</p>
                                 </motion.form>
                             ) : (
-                                <motion.div 
+                                <motion.div
                                     key="success"
                                     className={styles.successMessage}
                                     initial={{ opacity: 0, scale: 0.9 }}

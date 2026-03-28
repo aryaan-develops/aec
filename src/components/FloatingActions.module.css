@@ -45,13 +45,36 @@
     right: 68px;
 }
 
-.wa { background: linear-gradient(135deg, #25D366, #128C7E); }
-.mail { background: linear-gradient(135deg, var(--uv), var(--burg)); }
+.wa {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+}
 
-.icon { width: 24px; height: 24px; fill: white; }
+.insta {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.mail {
+    background: linear-gradient(135deg, var(--uv), var(--burg));
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    fill: white;
+}
 
 @media (max-width: 768px) {
-    .label { display: none; }
-    .quickBtns { right: 15px; bottom: 30px; }
-    .qbtn { width: 46px; height: 46px; }
+    .label {
+        display: none;
+    }
+
+    .quickBtns {
+        right: 15px;
+        bottom: 30px;
+    }
+
+    .qbtn {
+        width: 46px;
+        height: 46px;
+    }
 }

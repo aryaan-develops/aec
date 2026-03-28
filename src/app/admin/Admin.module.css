@@ -11,7 +11,7 @@
     background: white;
     padding: 40px;
     border-radius: 12px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
     width: 100%;
     max-width: 400px;
 }
@@ -124,8 +124,9 @@
     transition: 0.2s;
 }
 
-.sidebar li:hover, .activeTab {
-    background: rgba(255,255,255,0.05);
+.sidebar li:hover,
+.activeTab {
+    background: rgba(255, 255, 255, 0.05);
     border-left: 4px solid #38bdf8 !important;
 }
 
@@ -141,18 +142,27 @@
     background: white;
     padding: 25px;
     border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
 }
 
-.statCard h3 { font-size: 0.85rem; color: #64748b; margin-bottom: 10px; }
-.statCard p { font-size: 2rem; font-weight: 800; color: #1e293b; }
+.statCard h3 {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-bottom: 10px;
+}
+
+.statCard p {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #1e293b;
+}
 
 /* Management Styles */
 .card {
     background: white;
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
 }
 
 .cardHeader {
@@ -179,11 +189,32 @@
     border-collapse: collapse;
 }
 
-.table th { text-align: left; padding: 12px; color: #64748b; font-size: 0.85rem; border-bottom: 1px solid #f1f5f9; }
-.table td { padding: 15px 12px; color: #1e293b; font-size: 0.9rem; border-bottom: 1px solid #f8fafc; }
+.table th {
+    text-align: left;
+    padding: 12px;
+    color: #64748b;
+    font-size: 0.85rem;
+    border-bottom: 1px solid #f1f5f9;
+}
 
-.status { padding: 4px 10px; border-radius: 4px; font-weight: 600; font-size: 0.75rem; }
-.statusNew { background: #dcfce7; color: #15803d; }
+.table td {
+    padding: 15px 12px;
+    color: #1e293b;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #f8fafc;
+}
+
+.status {
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.75rem;
+}
+
+.statusNew {
+    background: #dcfce7;
+    color: #15803d;
+}
 
 .actionsBtn {
     padding: 6px 12px;
@@ -192,16 +223,39 @@
     border-radius: 4px;
     cursor: pointer;
     font-size: 0.8rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.2s opacity;
+}
+
+.actionsBtn:hover {
+    opacity: 0.8;
+}
+
+.callBtn {
+    color: #10b981;
+    border-color: #a7f3d0;
+    background: #ecfdf5;
+}
+
+.emailBtn {
+    color: #3b82f6;
+    border-color: #bfdbfe;
+    background: #eff6ff;
+    margin-left: 8px;
 }
 
 .deleteBtn {
-    color: #ef4444; border-color: #fecaca; background: #fef2f2; margin-left:8px;
+    color: #ef4444;
+    border-color: #fecaca;
+    background: #fef2f2;
+    margin-left: 8px;
 }
 
 .formModal {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -217,10 +271,30 @@
 }
 
 @media (max-width: 768px) {
-    .dashboard { flex-direction: column; }
-    .sidebar { width: 100%; padding: 15px 0; }
-    .sidebar h2 { margin-bottom: 20px; }
-    .sidebar ul { display: flex; overflow-x: auto; }
-    .sidebar li { white-space: nowrap; padding: 10px 20px; }
-    .mainContent { padding: 20px; }
+    .dashboard {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 15px 0;
+    }
+
+    .sidebar h2 {
+        margin-bottom: 20px;
+    }
+
+    .sidebar ul {
+        display: flex;
+        overflow-x: auto;
+    }
+
+    .sidebar li {
+        white-space: nowrap;
+        padding: 10px 20px;
+    }
+
+    .mainContent {
+        padding: 20px;
+    }
 }

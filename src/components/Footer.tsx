@@ -11,10 +11,10 @@ const Footer: React.FC = () => {
             <div className={styles.top}>
                 <div className={styles.brand}>
                     <div className={styles.footerLogo}>
-                        <Image 
-                            src="/logo.jpg" 
-                            alt="Aastha Education Consultancy Logo" 
-                            width={50} 
+                        <Image
+                            src="/logo.jpg"
+                            alt="Aastha Education Consultancy Logo"
+                            width={50}
                             height={50}
                             className={styles.logoImage}
                         />
@@ -48,8 +48,10 @@ const Footer: React.FC = () => {
                     <ul>
                         <li><Link href="https://wa.me/919264199286" target="_blank">💬 WhatsApp Us</Link></li>
                         <li><Link href="https://www.instagram.com/aastha_education_?igsh=MTZsaGVoZnYxa251cA==" target="_blank">📸 Instagram</Link></li>
+                        <li><a href="tel:+919264199286">📞 Call Us Now</a></li>
                         <li><Link href="mailto:aasthaedu.2017@gmail.com">✉️ Email Us</Link></li>
                         <li><Link href="#">Privacy Policy</Link></li>
+                        <li><Link href="/admin">🔐 Admin Dashboard</Link></li>
                     </ul>
                 </div>
             </div>

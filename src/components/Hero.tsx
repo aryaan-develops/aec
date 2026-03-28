@@ -70,7 +70,7 @@ const Hero: React.FC = () => {
             <div className={`${styles.orb} ${styles.orb3}`}></div>
             <div className={styles.particles} ref={particlesRef}></div>
 
-            <motion.div 
+            <motion.div
                 className={styles.content}
                 initial="hidden"
                 animate="visible"
@@ -79,7 +79,7 @@ const Hero: React.FC = () => {
                 <motion.div className={styles.badge} variants={itemVariants}>
                     <span className={styles.dot}></span> Trusted Education Partner · Jamshedpur
                 </motion.div>
-                
+
                 <motion.h1 className={styles.title} variants={itemVariants}>
                     Your Dream College<br />
                     Starts with <span className={styles.gold}>Expert</span><br />
@@ -112,14 +112,14 @@ const Hero: React.FC = () => {
                     </div>
                     <div className={styles.divider}></div>
                     <div className={styles.stat}>
-                        <div className={styles.statNum}>15+</div>
+                        <div className={styles.statNum}>20+</div>
                         <div className={styles.statLabel}>Years of Excellence</div>
                     </div>
                 </motion.div>
             </motion.div>
 
             <div className={styles.floatArea}>
-                <motion.div 
+                <motion.div
                     className={styles.floatCard}
                     variants={floatVariants}
                     animate="animate"
@@ -133,8 +133,8 @@ const Hero: React.FC = () => {
                     <div className={styles.prow}><span>Management</span><span style={{ color: 'var(--sand)' }}>89%</span></div>
                     <div className={styles.pWrap} style={{ marginBottom: 0 }}><motion.div initial={{ width: 0 }} animate={{ width: '89%' }} transition={{ duration: 1.5, delay: 1.4 }} className={styles.pBar}></motion.div></div>
                 </motion.div>
-                
-                <motion.div 
+
+                <motion.div
                     className={`${styles.floatCard} ${styles.ratingCard}`}
                     variants={floatVariants}
                     animate="animate"

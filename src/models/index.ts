@@ -17,7 +17,9 @@ const NoticeSchema = new Schema({
     title: { type: String, required: true },
     content: { type: String, required: true },
     type: { type: String, default: 'info' }, // urgent, info, new
-    date: { type: String, default: () => new Date().toLocaleDateString() }
+    date: { type: String, default: () => new Date().toLocaleDateString() },
+    phone: { type: String },
+    email: { type: String }
 }, { timestamps: true });
 
 export const Notice = models.Notice || model('Notice', NoticeSchema);

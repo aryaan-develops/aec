@@ -10,6 +10,8 @@ interface Notice {
     content: string;
     type: string;
     date: string;
+    phone?: string;
+    email?: string;
 }
 
 const NoticeBoard: React.FC = () => {
@@ -55,8 +57,8 @@ const NoticeBoard: React.FC = () => {
                     <h2>Important <span className="em">Notice Board</span></h2>
                     <p>Stay updated with the latest admission alerts and counseling schedules.</p>
                 </div>
-                
-                <motion.div 
+
+                <motion.div
                     className={styles.boardBody}
                     variants={containerVariants}
                     initial="hidden"
@@ -67,22 +69,31 @@ const NoticeBoard: React.FC = () => {
                         <p className={styles.empty}>No active notices at the moment.</p>
                     ) : (
                         notices.map((notice) => (
-                            <motion.div 
-                                key={notice._id} 
+                            <motion.div
+                                key={notice._id}
                                 className={`${styles.noticeCard} ${styles[notice.type] || styles.info}`}
                                 variants={itemVariants}
                             >
                                 <div className={styles.cardHeader}>
-                                    <span className={styles.date}>{notice.date}</span>
+                                    <div className={styles.dateInfo}>
+                                        <span className={styles.greenIndicator}></span>
+                                        <span className={styles.date}>{notice.date}</span>
+                                    </div>
                                     <span className={styles.typeBadge}>{notice.type.toUpperCase()}</span>
                                 </div>
                                 <h3 className={styles.noticeTitle}>{notice.title}</h3>
                                 <p className={styles.noticeText}>{notice.content}</p>
+                                {(notice.phone || notice.email) && (
+                                    <div className={styles.noticeContact}>
+                                        {notice.phone && <a href={`tel:${notice.phone}`} className={styles.noticeCall}>📞 Contact Us</a>}
+                                        {notice.email && <a href={`mailto:${notice.email}`} className={styles.noticeEmail}>✉️ Email Us</a>}
+                                    </div>
+                                )}
                             </motion.div>
                         ))
                     )}
                 </motion.div>
-                
+
                 <div className={styles.boardFooter}>
                     <p>Last updated: {lastUpdated}</p>
                 </div>

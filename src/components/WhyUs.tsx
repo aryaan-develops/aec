@@ -5,12 +5,13 @@ import { motion } from 'framer-motion';
 import styles from './WhyUs.module.css';
 
 const reasons = [
-    { num: '01', title: '15+ Years of Expertise', desc: 'Seasoned counselors with deep expertise across engineering, medical, management, law and arts streams.' },
+    { num: '01', title: '20+ Years of Expertise', desc: 'Seasoned counselors with deep expertise across engineering, medical, management, law and arts streams.' },
     { num: '02', title: '200+ College Network', desc: 'Strong institutional ties ensure genuine direct admission opportunities across every major stream.' },
     { num: '03', title: 'Fully Personalized', desc: 'Every student is unique. We tailor guidance to your aptitude, interests, location, and budget.' },
     { num: '04', title: '100% Transparent', desc: 'No hidden charges ever. Complete transparency in all services, fees, and admission processes.' },
     { num: '05', title: 'Post-Admission Support', desc: 'We stay with students after admission — hostel guidance, orientation, and smooth college transition.' },
-    { num: '06', title: 'Free Initial Consultation', desc: 'Our first session is always free. Come in, talk to us, and leave with clarity — no commitment needed.' }
+    { num: '06', title: 'Free Initial Consultation', desc: 'Our first session is always free. Come in, talk to us, and leave with clarity — no commitment needed.' },
+    { num: '07', title: 'Legal Proofs & Verification', desc: 'Total peace of mind. We share all necessary court papers, legal proofs, and verified documents to ensure complete legitimacy.' }
 ];
 
 const WhyUs: React.FC = () => {
@@ -34,7 +35,7 @@ const WhyUs: React.FC = () => {
     return (
         <section id="why" className={styles.why}>
             <div className={styles.content}>
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
@@ -42,7 +43,7 @@ const WhyUs: React.FC = () => {
                 >
                     The Aastha Edge
                 </motion.div>
-                <motion.h2 
+                <motion.h2
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -50,7 +51,7 @@ const WhyUs: React.FC = () => {
                 >
                     Why 5,000+ Students <span className="em">Trust Us</span>
                 </motion.h2>
-                <motion.p 
+                <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -60,7 +61,7 @@ const WhyUs: React.FC = () => {
                     We&apos;re not just consultants — we&apos;re partners who stay with you until your dream is achieved.
                 </motion.p>
             </div>
-            <motion.div 
+            <motion.div
                 className={styles.grid}
                 variants={containerVariants}
                 initial="hidden"
@@ -68,11 +69,11 @@ const WhyUs: React.FC = () => {
                 viewport={{ once: true, margin: "-100px" }}
             >
                 {reasons.map((reason, i) => (
-                    <motion.div 
-                        key={i} 
+                    <motion.div
+                        key={i}
                         className={styles.card}
                         variants={cardVariants}
-                        whileHover={{ 
+                        whileHover={{
                             scale: 1.02,
                             boxShadow: "0 10px 30px rgba(107, 26, 42, 0.15)",
                             transition: { duration: 0.3 }
