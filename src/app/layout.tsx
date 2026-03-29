@@ -25,8 +25,8 @@ export const metadata: Metadata = {
   keywords: "education consultancy, career counseling, admissions, Jamshedpur, AEC, Aastha Education, college admission, Engineering, Medical, MBBS, MBA",
   authors: [{ name: "Aastha Education Consultancy" }],
   icons: {
-    icon: '/logo.jpg',
-    apple: '/logo.jpg',
+    icon: '/icon.jpg',
+    apple: '/icon.jpg',
   },
 };
 

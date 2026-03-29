@@ -33,3 +33,15 @@ export async function DELETE(req: Request) {
         return NextResponse.json({ error: 'Failed to delete' }, { status: 500 });
     }
 }
+
+export async function PUT(req: Request) {
+    try {
+        await dbConnect();
+        const body = await req.json();
+        const { id, ...updateData } = body;
+        const res = await Notice.findByIdAndUpdate(id, updateData, { new: true });
+        return NextResponse.json(res);
+    } catch (err) {
+        return NextResponse.json({ error: 'Failed to update' }, { status: 500 });
+    }
+}

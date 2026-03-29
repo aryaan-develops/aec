@@ -165,7 +165,7 @@ section {
   pointer-events: none;
   z-index: 9999;
   transform: translate(-50%, -50%);
-  transition: width 0.3s, height 0.3s;
+  will-change: transform;
   mix-blend-mode: multiply;
 }
 

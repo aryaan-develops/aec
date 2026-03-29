@@ -23,7 +23,7 @@ const Footer: React.FC = () => {
                             <span>CONSULTANCY</span>
                         </div>
                     </div>
-                    <p>Empowering students across Jamshedpur and India to make informed career decisions and secure top college admissions.</p>
+                    <p>Tiwari Buildings, H.No 53, 3rd Floor, Thakurbari Road, Sakchi. Empowering students with informed decision-making and top college admissions.</p>
                 </div>
                 <div className={styles.col}>
                     <h4>Services</h4>
@@ -46,9 +46,10 @@ const Footer: React.FC = () => {
                 <div className={styles.col}>
                     <h4>Quick Reach</h4>
                     <ul>
-                        <li><Link href="https://wa.me/919264199286" target="_blank">💬 WhatsApp Us</Link></li>
+                        <li><Link href="https://wa.me/919591394618" target="_blank">💬 WhatsApp Us</Link></li>
+                        <li><Link href="https://t.me/919591394618" target="_blank">✈️ Telegram</Link></li>
                         <li><Link href="https://www.instagram.com/aastha_education_?igsh=MTZsaGVoZnYxa251cA==" target="_blank">📸 Instagram</Link></li>
-                        <li><a href="tel:+919264199286">📞 Call Us Now</a></li>
+                        <li><a href="tel:+919546083369">📞 Call Us Now</a></li>
                         <li><Link href="mailto:aasthaedu.2017@gmail.com">✉️ Email Us</Link></li>
                         <li><Link href="#">Privacy Policy</Link></li>
                         <li><Link href="/admin">🔐 Admin Dashboard</Link></li>

@@ -1,6 +1,7 @@
 "use client"
 
 import React from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import styles from './Services.module.css';
 
@@ -13,7 +14,12 @@ const services = [
     { icon: '📊', title: 'Entrance Exam Prep', desc: 'Structured guidance and resources for JEE, NEET, CAT, CLAT and all major competitive examinations.' }
 ];
 
+import InquiryModal from './InquiryModal';
+
 const Services: React.FC = () => {
+    const [isModalOpen, setIsModalOpen] = React.useState(false);
+    const [selectedService, setSelectedService] = React.useState('');
+
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -28,6 +34,14 @@ const Services: React.FC = () => {
             opacity: 1,
             y: 0,
             transition: { duration: 0.5 }
+        }
+    };
+
+    const handleServiceClick = (e: React.MouseEvent, title: string) => {
+        if (title !== 'Career Counseling') {
+            e.preventDefault();
+            setSelectedService(title);
+            setIsModalOpen(true);
         }
     };
 
@@ -67,28 +81,45 @@ const Services: React.FC = () => {
                 whileInView="visible"
                 viewport={{ once: true, margin: "-100px" }}
             >
-                {services.map((svc, i) => (
-                    <motion.div 
-                        key={i} 
-                        className={styles.card}
-                        variants={cardVariants}
-                        whileHover={{ 
-                            y: -8,
-                            transition: { duration: 0.3 }
-                        }}
-                    >
-                        <div className={styles.icon}>{svc.icon}</div>
-                        <h3>{svc.title}</h3>
-                        <p>{svc.desc}</p>
-                        <motion.div 
-                            className={styles.arrow}
-                            whileHover={{ x: 5 }}
+                {services.map((svc, i) => {
+                    const isCounseling = svc.title === 'Career Counseling';
+                    const target = isCounseling ? '/counsellors' : '#contact';
+                    
+                    return (
+                        <Link 
+                            href={target} 
+                            key={i} 
+                            style={{ textDecoration: 'none', color: 'inherit' }}
+                            onClick={(e) => handleServiceClick(e, svc.title)}
                         >
-                            →
-                        </motion.div>
-                    </motion.div>
-                ))}
+                            <motion.div 
+                                className={styles.card}
+                                variants={cardVariants}
+                                whileHover={{ 
+                                    y: -8,
+                                    transition: { duration: 0.3 }
+                                }}
+                            >
+                                <div className={styles.icon}>{svc.icon}</div>
+                                <h3>{svc.title}</h3>
+                                <p>{svc.desc}</p>
+                                <motion.div 
+                                    className={styles.arrow}
+                                    whileHover={{ x: 5 }}
+                                >
+                                    →
+                                </motion.div>
+                            </motion.div>
+                        </Link>
+                    );
+                })}
             </motion.div>
+
+            <InquiryModal 
+                isOpen={isModalOpen} 
+                onClose={() => setIsModalOpen(false)} 
+                serviceTitle={selectedService} 
+            />
         </section>
     );
 };

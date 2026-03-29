@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import styles from './Hero.module.css';
 
@@ -60,7 +61,14 @@ const Hero: React.FC = () => {
     return (
         <section className={styles.hero}>
             <div className={styles.bgContainer}>
-                <div className={styles.bgImage}></div>
+                <Image 
+                    src="/bg1.jpg" 
+                    alt="Aastha Education Consultancy Background" 
+                    fill 
+                    priority 
+                    quality={90}
+                    className={styles.bgImageFull}
+                />
                 <div className={styles.bgOverlay}></div>
             </div>
             <div className={`${styles.orb} ${styles.orb1}`}></div>
@@ -77,7 +85,16 @@ const Hero: React.FC = () => {
                 variants={containerVariants}
             >
                 <motion.div className={styles.badge} variants={itemVariants}>
-                    <span className={styles.dot}></span> Trusted Education Partner · Jamshedpur
+                    <Link 
+                        href="https://www.google.com/maps/search/?api=1&query=Tiwari+Buildings+H.No+53+3rd+Floor+In-front+of+Keshavji+Chhaganlal+Jewellers+Thakurbari+Road+Sakchi+Jamshedpur" 
+                        target="_blank"
+                        className={styles.badgeLink}
+                    >
+                        <svg className={styles.locIcon} viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                        </svg>
+                        Trusted Education Partner · Jamshedpur
+                    </Link>
                 </motion.div>
 
                 <motion.h1 className={styles.title} variants={itemVariants}>

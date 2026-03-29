@@ -1,0 +1,175 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.modal {
+    background: white;
+    width: 100%;
+    max-width: 700px; 
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.closeBtn {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    background: #f8f9fa;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    line-height: 36px;
+    cursor: pointer;
+    color: #666;
+    transition: all 0.2s;
+    z-index: 10;
+}
+
+.closeBtn:hover {
+    background: #3d0a10;
+    color: white;
+    transform: rotate(90deg);
+}
+
+.sub {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.modalTitle {
+    font-size: 2.2rem;
+    font-family: var(--font-serif);
+    color: #1a0b16;
+    margin-bottom: 5px;
+    font-weight: 800;
+}
+
+.formScroller {
+    overflow-y: auto;
+    padding-right: 10px;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Custom Scrollbar */
+.formScroller::-webkit-scrollbar {
+    width: 6px;
+}
+.formScroller::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+.formScroller::-webkit-scrollbar-thumb {
+    background: #dbb366;
+    border-radius: 10px;
+}
+
+.formGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.groupFull {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.group label, .groupFull label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #3d0a10;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.group input, .group select, .groupFull textarea {
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: 1.5px solid #edf2f7;
+    background: #f8fafc;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+
+.group input:focus, .group select:focus, .groupFull textarea:focus {
+    border-color: #dbb366;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(219, 179, 102, 0.1);
+}
+
+.submit {
+    margin-top: 10px;
+    padding: 18px;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #3d0a10 0%, #1a0b16 100%);
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(61, 10, 16, 0.2);
+    transition: all 0.3s;
+}
+
+.submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(61, 10, 16, 0.3);
+    background: linear-gradient(135deg, #dbb366, #e2c08d);
+    color: #3d0a10;
+}
+
+@media (max-width: 600px) {
+    .modal { padding: 30px 20px; }
+    .formGrid { grid-template-columns: 1fr; }
+    .modalTitle { font-size: 1.8rem; }
+}
+
+.success {
+    text-align: center;
+    padding: 60px 0;
+}
+
+.success h2 {
+    color: #22c55e;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.success p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+}

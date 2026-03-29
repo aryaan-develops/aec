@@ -1,97 +1,139 @@
-.scrollWrapper {
-    height: 350vh;
-    /* Extremely tall to allow smooth scroll animations */
-    background: #000;
-}
-
-.splash {
+.splashMain {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    background: #000;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9999;
+    background: #000;
+    z-index: 10000;
     overflow: hidden;
 }
 
-.logoContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.movingGradient {
     position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.orb1, .orb2, .orb3, .shapeSquare, .shapeTri, .shapeBeam {
+    position: absolute;
+    border: 1px solid rgba(219, 179, 102, 0.4);
+    box-shadow: 0 0 30px rgba(219, 179, 102, 0.2);
+    animation: glowEdge 4s infinite alternate ease-in-out;
+}
+
+.orb1, .orb2, .orb3 { border-radius: 50%; opacity: 0.5; }
+
+.shapeSquare { width: 60px; height: 60px; border-radius: 12px; transform: rotate(45deg); }
+.sq1 { top: 20%; right: 15%; animation: orbMove1 25s infinite alternate linear, rotateShape 10s infinite linear; }
+.sq2 { top: 40%; left: 10%; animation: orbMove2 20s infinite alternate linear, rotateShape 15s infinite linear reverse; width: 40px; height: 40px; }
+.sq3 { bottom: 20%; right: 25%; animation: orbMove3 22s infinite alternate linear, rotateShape 12s infinite linear; width: 50px; height: 50px; }
+
+.shapeTri { width: 0; height: 0; border-left: 30px solid transparent; border-right: 30px solid transparent; border-bottom: 50px solid rgba(219, 179, 102, 0.2); background: none; box-shadow: none; filter: drop-shadow(0 0 15px rgba(219, 179, 102, 0.4)); border-top: none; }
+.tri1 { top: 70%; left: 15%; animation: orbMove2 30s infinite alternate linear, rotateShape 18s infinite linear reverse; }
+.tri2 { top: 15%; left: 45%; animation: orbMove1 28s infinite alternate linear, rotateShape 12s infinite linear; transform: scale(0.7); }
+
+.shapeBeam { width: 2px; height: 180px; background: linear-gradient(to bottom, transparent, rgba(219, 179, 102, 0.4), transparent); border: none; box-shadow: 0 0 20px rgba(219, 179, 102, 0.2); opacity: 0.6; }
+.bm1 { top: 5%; left: 30%; animation: orbMove3 20s infinite alternate linear; }
+.bm2 { bottom: 10%; right: 40%; animation: orbMove1 22s infinite alternate linear; opacity: 0.4; height: 120px; }
+.bm3 { top: 50%; right: 10%; animation: orbMove2 25s infinite alternate linear; transform: rotate(30deg); }
+.bm4 { top: 10%; right: 50%; animation: orbMove3 18s infinite alternate linear; height: 250px; opacity: 0.3; }
+
+@keyframes rotateShape {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes glowEdge {
+    0% { border-color: rgba(219, 179, 102, 0.2); box-shadow: 0 0 20px rgba(219, 179, 102, 0.1); }
+    100% { border-color: rgba(219, 179, 102, 0.5); box-shadow: 0 0 50px rgba(219, 179, 102, 0.3); }
+}
+
+.noise {
+    position: absolute;
+    inset: -200%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.02;
     z-index: 2;
+    pointer-events: none;
 }
 
-.logo {
-    border-radius: 50%;
-    box-shadow: 0 0 80px rgba(255, 255, 255, 0.2);
-}
-
-.scrollHint {
-    color: white;
-    margin-top: 30px;
-    font-size: 0.9rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 500;
-}
-
-.textContainer {
-    text-align: center;
-    color: white;
-    max-width: 650px;
-    padding: 0 20px;
+.shine {
     position: absolute;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, rgba(219, 179, 102, 0.03) 50%, transparent 100%);
+    transform: rotate(45deg);
+    top: -50%;
+    left: -100%;
+    animation: shineSweep 8s infinite alternate ease-in-out;
     z-index: 3;
 }
 
-.welcome {
-    font-size: 3.5rem;
-    margin-bottom: 25px;
-    font-weight: 700;
-    font-family: var(--font-serif);
+@keyframes orbMove1 {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(300px, 200px); }
 }
 
-.highlight {
-    background: linear-gradient(135deg, #FFD700, #FFA500);
+@keyframes orbMove2 {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-200px, -300px); }
+}
+
+@keyframes orbMove3 {
+    0% { transform: translate(-50%, -50%); }
+    100% { transform: translate(-20%, -80%); }
+}
+
+@keyframes shineSweep {
+    0% { transform: rotate(45deg) translateX(-100%); }
+    100% { transform: rotate(45deg) translateX(100%); }
+}
+
+.logoSlot, .textSlot {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    color: white;
+}
+
+.largeLogo {
+    border-radius: 50%;
+    box-shadow: 0 0 100px rgba(219, 179, 102, 0.3);
+}
+
+.brandTitle {
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: 4px;
+    font-family: var(--font-serif);
+    line-height: 1.2;
+}
+
+.brandTitle span {
+    font-size: 1.5rem;
+    letter-spacing: 8px;
+    font-weight: 300;
+    opacity: 0.8;
+}
+
+.welcomeText {
+    font-size: 5rem;
+    font-weight: 900;
+    letter-spacing: 20px;
+    background: linear-gradient(135deg, #dbb366 0%, #fff 50%, #dbb366 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.about {
-    font-size: 1.3rem;
-    line-height: 1.7;
-    opacity: 0.8;
-}
-
-.progressBar {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(90deg, #FFD700, #FFA500);
-    transform-origin: left;
-    z-index: 4;
-}
-
 @media (max-width: 768px) {
-    .welcome {
-        font-size: 2.2rem;
-    }
-
-    .about {
-        font-size: 1.1rem;
-    }
-
-    .logo {
-        width: 140px;
-        height: 140px;
-    }
+    .brandTitle { font-size: 1.8rem; }
+    .brandTitle span { font-size: 0.9rem; }
+    .welcomeText { font-size: 2.5rem; letter-spacing: 10px; }
+    .largeLogo { width: 140px; height: 140px; }
 }

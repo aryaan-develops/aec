@@ -11,7 +11,10 @@ const Contact: React.FC = () => {
         email: '',
         stream: '',
         class: '',
-        goal: ''
+        goal: '',
+        studentLocation: '',
+        targetCourse: '',
+        interestedColleges: ''
     });
     const [submitted, setSubmitted] = useState(false);
 
@@ -32,7 +35,7 @@ const Contact: React.FC = () => {
             setSubmitted(true);
             setTimeout(() => {
                 setSubmitted(false);
-                setFormData({ name: '', phone: '', email: '', stream: '', class: '', goal: '' });
+                setFormData({ name: '', phone: '', email: '', stream: '', class: '', goal: '', studentLocation: '', targetCourse: '', interestedColleges: '' });
             }, 3000);
         } catch (e) {
             console.error('Failed to submit form');
@@ -102,14 +105,14 @@ const Contact: React.FC = () => {
                         <div className={styles.iconClassic}>📍</div>
                         <div>
                             <div className={styles.iLabel}>Office Address</div>
-                            <div className={styles.iVal}>Aastha Education Consultancy<br />Jamshedpur, Jharkhand — 831001</div>
+                            <div className={styles.iVal}>Tiwari Buildings, H.No 53, 3rd Floor,<br />In-front of Keshavji Chhaganlal Jewellers,<br />Thakurbari Road, Sakchi, Jamshedpur</div>
                         </div>
                     </motion.div>
                     <motion.div className={styles.item} variants={itemVariants}>
                         <div className={styles.iconClassic}>📞</div>
                         <div>
                             <div className={styles.iLabel}>Direct Helpline</div>
-                            <div className={styles.iVal}><a href="tel:+919264199286">+91 92641 99286</a></div>
+                            <div className={styles.iVal}><a href="tel:+919546083369">+91 95460 83369</a></div>
                         </div>
                     </motion.div>
                     <motion.div className={styles.item} variants={itemVariants}>
@@ -179,7 +182,14 @@ const Contact: React.FC = () => {
                                             </select>
                                         </div>
                                         <div className={styles.fGroup}>
-                                            <label>Current Status</label>
+                                            <label>Specific Course</label>
+                                            <input type="text" name="targetCourse" value={formData.targetCourse} onChange={handleChange} placeholder="e.g. CSE, Cardiology, HR" />
+                                        </div>
+                                    </div>
+
+                                    <div className={styles.fRow}>
+                                        <div className={styles.fGroup}>
+                                            <label>Current Education</label>
                                             <select name="class" value={formData.class} onChange={handleChange}>
                                                 <option value="" disabled>Select Level</option>
                                                 <option>10th Grade</option>
@@ -188,11 +198,20 @@ const Contact: React.FC = () => {
                                                 <option>Graduate</option>
                                             </select>
                                         </div>
+                                        <div className={styles.fGroup}>
+                                            <label>Your City / Location</label>
+                                            <input type="text" name="studentLocation" value={formData.studentLocation} onChange={handleChange} placeholder="e.g. Jamshedpur, Ranchi" />
+                                        </div>
                                     </div>
 
                                     <div className={styles.fGroup}>
-                                        <label>Specific Inquiry / Goal</label>
-                                        <textarea name="goal" value={formData.goal} onChange={handleChange} placeholder="Describe your career goals or specific concerns..." rows={3}></textarea>
+                                        <label>Colleges You are Interested In</label>
+                                        <input type="text" name="interestedColleges" value={formData.interestedColleges} onChange={handleChange} placeholder="e.g. SRM, VIT, Manipal, etc." />
+                                    </div>
+
+                                    <div className={styles.fGroup}>
+                                        <label>Additional Inquiry / Special Request</label>
+                                        <textarea name="goal" value={formData.goal} onChange={handleChange} placeholder="Describe your career goals or specific concerns..." rows={2}></textarea>
                                     </div>
 
                                     <motion.button

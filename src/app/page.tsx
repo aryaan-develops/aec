@@ -16,12 +16,20 @@ import SplashScreen from '@/components/SplashScreen';
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
+    // Session optimization: Only show splash once per session
+    const hasSeenSplash = sessionStorage.getItem('aastha_splash_seen');
+    if (hasSeenSplash) {
+      setLoading(false);
+    }
+
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePos({ x: e.clientX, y: e.clientY });
+      // Use CSS variables for cursor glow - much smoother performance than React state
+      document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
+      document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
     };
+    
     window.addEventListener('mousemove', handleMouseMove);
 
     return () => {
@@ -29,10 +37,15 @@ export default function Home() {
     };
   }, []);
 
+  const handleSplashComplete = () => {
+    sessionStorage.setItem('aastha_splash_seen', 'true');
+    setLoading(false);
+  };
+
   return (
     <main>
       <AnimatePresence mode="wait">
-        {loading && <SplashScreen onComplete={() => setLoading(false)} />}
+        {loading && <SplashScreen onComplete={handleSplashComplete} />}
       </AnimatePresence>
 
       {!loading && (
@@ -44,7 +57,11 @@ export default function Home() {
         >
           <div
             className="cursor-glow"
-            style={{ left: `${mousePos.x}px`, top: `${mousePos.y}px` }}
+            style={{ 
+              left: 'var(--mouse-x)', 
+              top: 'var(--mouse-y)',
+              position: 'fixed'
+            }}
           ></div>
 
           <Navbar />

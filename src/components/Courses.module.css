@@ -30,6 +30,16 @@
     padding: 28px 24px 22px;
     position: relative;
     overflow: hidden;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.location {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 4px;
 }
 
 .tag {
@@ -57,10 +67,18 @@
 
 .meta {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 12px;
-    font-size: 0.75rem;
-    color: rgba(255, 250, 205, 0.55);
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.pill {
+    font-size: 0.7rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 250, 205, 0.1);
+    color: rgba(255, 250, 205, 0.7);
+    padding: 3px 10px;
+    border-radius: 12px;
 }
 
 .desc {
@@ -68,6 +86,13 @@
     color: rgba(255, 250, 205, .55);
     line-height: 1.65;
     margin-bottom: 16px;
+}
+
+.actionLinks {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
 }
 
 .link {
@@ -78,7 +103,18 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    transition: gap .2s;
+    transition: transform .2s;
 }
 
-.link:hover { gap: 12px; }
+.link:hover { transform: translateX(5px); }
+
+.externalLink {
+    font-size: 0.75rem;
+    color: rgba(255, 250, 205, 0.5);
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+.externalLink:hover {
+    color: var(--sand);
+}

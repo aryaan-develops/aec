@@ -64,10 +64,10 @@ const Navbar: React.FC = () => {
                 </Link>
 
                 <ul className={styles.navLinks}>
-                    {['Services', 'Courses', 'Notices', 'Why', 'Testimonials', 'Contact'].map((item) => (
+                    {['Services', 'Courses', 'Counsellors', 'Notices', 'Why', 'Testimonials', 'Contact'].map((item) => (
                         <motion.li key={item} variants={itemVariants}>
-                            <Link href={`#${item.toLowerCase()}`} className={styles.navLink}>
-                                {item === 'Why' ? 'Why Us' : item === 'Courses' ? 'Streams' : item === 'Testimonials' ? 'Reviews' : item}
+                            <Link href={item === 'Counsellors' ? '/counsellors' : `#${item.toLowerCase()}`} className={styles.navLink}>
+                                {item === 'Why' ? 'Why Us' : item === 'Courses' ? 'Streams' : item === 'Testimonials' ? 'Reviews' : item === 'Counsellors' ? 'Counselors' : item}
                                 {item === 'Notices' && <span className={styles.liveBadge}></span>}
                             </Link>
                         </motion.li>
@@ -101,10 +101,10 @@ const Navbar: React.FC = () => {
                         className={`${styles.mobileMenu} ${styles.mobileOpen}`}
                     >
                         <ul>
-                            {['Services', 'Courses', 'Notices', 'Why', 'Testimonials', 'Contact'].map((item) => (
+                            {['Services', 'Courses', 'Counsellors', 'Notices', 'Why', 'Testimonials', 'Contact'].map((item) => (
                                 <li key={item}>
-                                    <Link href={`#${item.toLowerCase()}`} onClick={closeMenu}>
-                                        {item === 'Why' ? 'Why Us' : item === 'Courses' ? 'Streams' : item === 'Testimonials' ? 'Reviews' : item}
+                                    <Link href={item === 'Counsellors' ? '/counsellors' : `#${item.toLowerCase()}`} onClick={closeMenu}>
+                                        {item === 'Why' ? 'Why Us' : item === 'Courses' ? 'Streams' : item === 'Testimonials' ? 'Reviews' : item === 'Counsellors' ? 'Counselors' : item}
                                     </Link>
                                 </li>
                             ))}

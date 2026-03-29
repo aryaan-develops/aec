@@ -20,9 +20,9 @@ const Testimonials: React.FC = () => {
                 const data = await res.json();
                 if (data.length > 0) setReviews(data);
                 else setReviews([
-                    { _id: '1', name: 'Rohit Kumar', role: 'B.Tech CSE, VIT Vellore', avatar: 'RK', text: 'Thanks to Aastha, I secured a seat at VIT Vellore through direct admission despite a borderline JEE score. They were honest, efficient, and genuinely cared about my future.' },
-                    { _id: '2', name: 'Priya Das', role: 'MBBS, KIMS Bhubaneswar', avatar: 'PD', text: 'The career counseling session changed everything for me. I was torn between medicine and engineering. AEC helped me choose confidently — now in 2nd year MBBS and loving it!' },
-                    { _id: '3', name: 'Sunita Mahato', role: 'Parent — MBA, XLRI Jamshedpur', avatar: 'SM', text: 'As parents, we were overwhelmed by the admission process. Aastha\'s team guided us step by step, handled everything, and our son got into a top MBA college. Absolutely recommend!' }
+                    { _id: '1', name: 'Rohit Kumar', role: 'B.Tech CSE, VIT Vellore', avatar: '', text: 'Thanks to Aastha, I secured a seat at VIT Vellore through direct admission despite a borderline JEE score. They were honest, efficient, and genuinely cared about my future.' },
+                    { _id: '2', name: 'Priya Das', role: 'MBBS, KIMS Bhubaneswar', avatar: '', text: 'The career counseling session changed everything for me. I was torn between medicine and engineering. AEC helped me choose confidently — now in 2nd year MBBS and loving it!' },
+                    { _id: '3', name: 'Sunita Mahato', role: 'Parent — MBA, XLRI Jamshedpur', avatar: '', text: 'As parents, we were overwhelmed by the admission process. Aastha\'s team guided us step by step, handled everything, and our son got into a top MBA college. Absolutely recommend!' }
                 ]);
             } catch (e) { console.error(e); }
         };
@@ -98,10 +98,15 @@ const Testimonials: React.FC = () => {
                         <div className={styles.author}>
                             <motion.div 
                                 className={styles.avatar}
-                                whileHover={{ rotate: 360 }}
+                                whileHover={{ rotate: rev.avatar?.startsWith('data:') ? 0 : 360 }}
                                 transition={{ duration: 0.8 }}
+                                style={{ overflow: 'hidden' }}
                             >
-                                {rev.avatar || rev.name.substring(0,2).toUpperCase()}
+                                {rev.avatar?.startsWith('data:') ? (
+                                    <img src={rev.avatar} alt={rev.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                ) : (
+                                    rev.avatar || rev.name.substring(0,2).toUpperCase()
+                                )}
                             </motion.div>
                             <div>
                                 <div className={styles.name}>{rev.name}</div>

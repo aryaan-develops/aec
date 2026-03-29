@@ -15,9 +15,9 @@ const Courses: React.FC = () => {
                 const data = await res.json();
                 if (data.length > 0) setColleges(data);
                 else setColleges([
-                    { _id: '1', name: 'Engineering & Technology', excellence: 'B.Tech/B.E. across all specializations. JEE counseling, state quota, direct and NRI admissions.', tags: 'Science, JEE, VITEEE', color: 'linear-gradient(135deg,#3D1A6E,#6B1A2A)' },
-                    { _id: '2', name: 'MBBS, BDS & Allied Health', excellence: 'NEET counseling, management quota, deemed universities, and international MBBS placements.', tags: 'Medical, NEET, Abroad', color: 'linear-gradient(135deg,#5B2D8E,#4A0F1A)' },
-                    { _id: '3', name: 'MBA & BBA Programs', excellence: 'Top B-school admissions, CAT/MAT coaching, lateral entry for working professionals.', tags: 'Management, CAT, MAT', color: 'linear-gradient(135deg,#7A2A0A,#3D1A6E)' }
+                    { _id: '1', name: 'VIT University', location: 'Vellore, TN', excellence: 'Top-tier engineering with A++ NAAC rating. 100% placement record in CSE/IT.', tags: 'Engineering, VITEEE, Top Rated', image: 'https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=1000' },
+                    { _id: '2', name: 'KMC Manipal', location: 'Manipal, KA', excellence: 'India\'s premier medical institution. World-class hospital tie-ups and research facilities.', tags: 'MBBS, NEET, Medical', image: 'https://images.unsplash.com/photo-1519452635265-7b1fbfd1e4e0?q=80&w=1000' },
+                    { _id: '3', name: 'Symbiosis (SIBM)', location: 'Pune, MH', excellence: 'Renowned for global management exposures and specialized MBA programs.', tags: 'Management, SNAP, MBA', image: 'https://images.unsplash.com/photo-1541339907198-e08756ebafe3?q=80&w=1000' }
                 ]);
             } catch (e) { console.error(e); }
         };
@@ -87,18 +87,27 @@ const Courses: React.FC = () => {
                         variants={cardVariants}
                         whileHover={{ y: -10, transition: { duration: 0.3 } }}
                     >
-                        <div className={styles.top} style={{ background: stream.color || 'var(--uv)' }}>
+                        <div 
+                            className={styles.top} 
+                            style={{ 
+                                background: stream.image ? `linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.8)), url(${stream.image}) center/cover` : (stream.color || 'var(--uv)') 
+                            }}
+                        >
                             <div className={styles.tag}>{stream.tags.split(',')[0]}</div>
                             <h3>{stream.name}</h3>
+                            {stream.location && <div className={styles.location}>📍 {stream.location}</div>}
                         </div>
                         <div className={styles.body}>
                             <p className={styles.desc}>{stream.excellence}</p>
-                            <div className={styles.meta} style={{ marginTop: '15px' }}>
+                            <div className={styles.meta}>
                                 {stream.tags.split(',').map((tag: string, j: number) => (
-                                    <span key={j} style={{ fontSize:'0.7rem', background:'#f0f0f0', padding:'2px 8px', borderRadius:'10px', marginRight:'5px' }}>{tag.trim()}</span>
+                                    <span key={j} className={styles.pill}>{tag.trim()}</span>
                                 ))}
                             </div>
-                            <Link href="#contact" className={styles.link} style={{ marginTop: '20px' }}>Enquire Now →</Link>
+                            <div className={styles.actionLinks}>
+                                <Link href="#contact" className={styles.link}>Enquire Now →</Link>
+                                {stream.link && <a href={stream.link} target="_blank" className={styles.externalLink}>Visit Website ↗</a>}
+                            </div>
                         </div>
                     </motion.div>
                 ))}

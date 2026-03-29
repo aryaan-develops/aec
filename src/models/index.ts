@@ -7,6 +7,10 @@ const LeadSchema = new Schema({
     stream: { type: String },
     class: { type: String },
     goal: { type: String },
+    studentLocation: { type: String },
+    targetCourse: { type: String },
+    interestedColleges: { type: String },
+    additionalInfo: { type: String },
     status: { type: String, default: 'New' },
     date: { type: String, default: () => new Date().toLocaleString() }
 }, { timestamps: true });
@@ -37,7 +41,20 @@ const CollegeSchema = new Schema({
     name: { type: String, required: true },
     excellence: { type: String },
     tags: { type: String }, // comma separated
+    image: { type: String }, // URL
+    link: { type: String }, // Direct Link to college
+    location: { type: String }, // e.g. Bangalore, Pune
     color: { type: String }
 }, { timestamps: true });
 
 export const College = models.College || model('College', CollegeSchema);
+
+const CounsellorSchema = new Schema({
+    name: { type: String, required: true },
+    bio: { type: String },
+    phone: { type: String },
+    email: { type: String },
+    photo: { type: String }
+}, { timestamps: true });
+
+export const Counsellor = models.Counsellor || model('Counsellor', CounsellorSchema);
