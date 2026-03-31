@@ -38,11 +38,14 @@ const Services: React.FC = () => {
     };
 
     const handleServiceClick = (e: React.MouseEvent, title: string) => {
-        if (title !== 'Career Counseling') {
-            e.preventDefault();
-            setSelectedService(title);
-            setIsModalOpen(true);
+        const modalServices = ['Application Support'];
+        if (!modalServices.includes(title)) {
+            // Let the Link handle navigation for specialized pages or anchors
+            return;
         }
+        e.preventDefault();
+        setSelectedService(title);
+        setIsModalOpen(true);
     };
 
     return (
@@ -82,8 +85,12 @@ const Services: React.FC = () => {
                 viewport={{ once: true, margin: "-100px" }}
             >
                 {services.map((svc, i) => {
-                    const isCounseling = svc.title === 'Career Counseling';
-                    const target = isCounseling ? '/counsellors' : '#contact';
+                    let target = '#contact';
+                    if (svc.title === 'Career Counseling') target = '/counsellors';
+                    if (svc.title === 'Direct Admission') target = '#courses';
+                    if (svc.title === 'Scholarship Guidance') target = '/scholarship';
+                    if (svc.title === 'Entrance Exam Prep') target = '/entrance-prep';
+                    if (svc.title === 'Study Abroad') target = '/study-abroad';
                     
                     return (
                         <Link 

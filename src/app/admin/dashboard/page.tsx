@@ -4,14 +4,6 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import styles from '../Admin.module.css';
 
-interface Counsellor {
-    _id: string;
-    name: string;
-    bio: string;
-    email: string;
-    phone: string;
-}
-
 interface Lead {
     _id: string;
     name: string;
@@ -61,33 +53,28 @@ export default function AdminDashboard() {
     const [reviews, setReviews] = useState<Review[]>([]);
     const [notices, setNotices] = useState<Notice[]>([]);
     const [colleges, setColleges] = useState<College[]>([]);
-    const [counsellors, setCounsellors] = useState<Counsellor[]>([]);
 
     const [isNoticeModalOpen, setIsNoticeModalOpen] = useState(false);
     const [isReviewModalOpen, setIsReviewModalOpen] = useState(false);
     const [isCollegeModalOpen, setIsCollegeModalOpen] = useState(false);
-    const [isCounsellorModalOpen, setIsCounsellorModalOpen] = useState(false);
     const [editId, setEditId] = useState<string | null>(null);
 
     const [newNotice, setNewNotice] = useState({ title: '', content: '', type: 'info', date: '', phone: '', email: '' });
     const [newReview, setNewReview] = useState({ name: '', role: '', text: '', avatar: '' });
     const [newCollege, setNewCollege] = useState({ name: '', excellence: '', tags: '', image: '', link: '', location: '' });
-    const [newCounsellor, setNewCounsellor] = useState({ name: '', bio: '', email: '', phone: '' });
 
     const fetchData = async () => {
         try {
-            const [l, r, n, c, s] = await Promise.all([
+            const [l, r, n, c] = await Promise.all([
                 fetch('/api/leads').then(res => res.json()),
                 fetch('/api/reviews').then(res => res.json()),
                 fetch('/api/notices').then(res => res.json()),
-                fetch('/api/colleges').then(res => res.json()),
-                fetch('/api/counsellors').then(res => res.json())
+                fetch('/api/colleges').then(res => res.json())
             ]);
             setLeads(Array.isArray(l) ? l : []);
             setReviews(Array.isArray(r) ? r : []);
             setNotices(Array.isArray(n) ? n : []);
             setColleges(Array.isArray(c) ? c : []);
-            setCounsellors(Array.isArray(s) ? s : []);
         } catch (e) {
             console.error('Data sync failed');
         }
@@ -136,14 +123,6 @@ export default function AdminDashboard() {
                 location: item.location || '' 
             });
             setIsCollegeModalOpen(true);
-        } else if (type === 'counsellor') {
-            setNewCounsellor({
-                name: item.name,
-                bio: item.bio,
-                email: item.email,
-                phone: item.phone || ''
-            });
-            setIsCounsellorModalOpen(true);
         }
     };
 
@@ -215,7 +194,6 @@ export default function AdminDashboard() {
                     <li className={activeTab === 'notices' ? styles.activeTab : ''} onClick={() => setActiveTab('notices')}>Notices ({notices.length})</li>
                     <li className={activeTab === 'reviews' ? styles.activeTab : ''} onClick={() => setActiveTab('reviews')}>Stories ({reviews.length})</li>
                     <li className={activeTab === 'colleges' ? styles.activeTab : ''} onClick={() => setActiveTab('colleges')}>Colleges ({colleges.length})</li>
-                    <li className={activeTab === 'counsellors' ? styles.activeTab : ''} onClick={() => setActiveTab('counsellors')}>Experts ({counsellors.length})</li>
                     <li onClick={handleLogout} style={{ color: '#ff4d4d', fontWeight: 'bold' }}>Logout</li>
                 </ul>
             </div>
@@ -355,34 +333,6 @@ export default function AdminDashboard() {
                         </table>
                     </div>
                 )}
-
-                {activeTab === 'counsellors' && (
-                    <div className={styles.card}>
-                        <div className={styles.cardHeader}>
-                            <h2>Expert Counsellors</h2>
-                            <button className={styles.addBtn} onClick={() => setIsCounsellorModalOpen(true)}>Add Expert</button>
-                        </div>
-                        <table className={styles.table}>
-                            <thead><tr><th>Name</th><th>Email / Phone</th><th>Bio</th><th>Actions</th></tr></thead>
-                            <tbody>
-                                {counsellors.map(c => (
-                                    <tr key={c._id}>
-                                        <td><strong>{c.name}</strong></td>
-                                        <td>
-                                            <div>{c.email}</div>
-                                            <div style={{ fontSize: '0.8rem', opacity: 0.7 }}>{c.phone}</div>
-                                        </td>
-                                        <td>{c.bio.substring(0, 50)}...</td>
-                                        <td>
-                                            <button className={`${styles.actionsBtn} ${styles.editBtn}`} onClick={() => openEdit(c, 'counsellor')}>Edit</button>
-                                            <button className={`${styles.actionsBtn} ${styles.deleteBtn}`} onClick={() => deleteItem('counsellors', c._id)}>Delete</button>
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
-                )}
             </div>
 
             {/* Modals */}
@@ -455,23 +405,6 @@ export default function AdminDashboard() {
                         
                         <button className={styles.addBtn} style={{ background: '#6366f1', width: '100%', marginBottom: '10px', padding: '14px' }} onClick={() => saveItem('colleges', newCollege, () => setIsCollegeModalOpen(false), () => { setNewCollege({ name: '', excellence: '', tags: '', image: '', link: '', location: '' }); setEditId(null); })}>Save College Details</button>
                         <button className={styles.actionsBtn} style={{ width: '100%', padding: '12px' }} onClick={() => { setIsCollegeModalOpen(false); setEditId(null); }}>Discard Changes</button>
-                    </div>
-                </div>
-            )}
-
-            {isCounsellorModalOpen && (
-                <div className={styles.formModal}>
-                    <div className={styles.modalContent}>
-                        <h3>{editId ? 'Edit Expert' : 'Add Expert'}</h3>
-                        <div className={styles.formGroup}><label>Name</label><input type="text" placeholder="e.g. Dr. Amit Sharma" value={newCounsellor.name} onChange={e => setNewCounsellor({ ...newCounsellor, name: e.target.value })} /></div>
-                        
-
-                        <div className={styles.formGroup}><label>Email</label><input type="text" placeholder="amit@aastha.com" value={newCounsellor.email} onChange={e => setNewCounsellor({ ...newCounsellor, email: e.target.value })} /></div>
-                        <div className={styles.formGroup}><label>Phone</label><input type="text" placeholder="+91 00000 00000" value={newCounsellor.phone} onChange={e => setNewCounsellor({ ...newCounsellor, phone: e.target.value })} /></div>
-                        <div className={styles.formGroup}><label>Bio</label><textarea placeholder="Brief history and expertise..." value={newCounsellor.bio} onChange={e => setNewCounsellor({ ...newCounsellor, bio: e.target.value })}></textarea></div>
-                        
-                        <button className={styles.addBtn} style={{ background: '#6366f1', width: '100%', marginBottom: '10px', padding: '14px' }} onClick={() => saveItem('counsellors', newCounsellor, () => setIsCounsellorModalOpen(false), () => { setNewCounsellor({ name: '', bio: '', email: '', phone: '' }); setEditId(null); })}>Save Expert Details</button>
-                        <button className={styles.actionsBtn} style={{ width: '100%', padding: '12px' }} onClick={() => { setIsCounsellorModalOpen(false); setEditId(null); }}>Discard Changes</button>
                     </div>
                 </div>
             )}

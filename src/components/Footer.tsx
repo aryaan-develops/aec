@@ -11,12 +11,13 @@ const Footer: React.FC = () => {
             <div className={styles.top}>
                 <div className={styles.brand}>
                     <div className={styles.footerLogo}>
-                        <Image
-                            src="/logo.jpg"
-                            alt="Aastha Education Consultancy Logo"
-                            width={50}
-                            height={50}
+                        <Image 
+                            src="/nav_logo.png" 
+                            alt="Aastha Logo" 
+                            width={55} 
+                            height={55} 
                             className={styles.logoImage}
+                            unoptimized={true}
                         />
                         <div className={styles.logoText}>
                             <h3>AASTHA EDUCATION</h3>
@@ -47,7 +48,7 @@ const Footer: React.FC = () => {
                     <h4>Quick Reach</h4>
                     <ul>
                         <li><Link href="https://wa.me/919591394618" target="_blank">💬 WhatsApp Us</Link></li>
-                        <li><Link href="https://t.me/919591394618" target="_blank">✈️ Telegram</Link></li>
+                        <li><Link href="https://t.me/+919546083369" target="_blank">✈️ Telegram</Link></li>
                         <li><Link href="https://www.instagram.com/aastha_education_?igsh=MTZsaGVoZnYxa251cA==" target="_blank">📸 Instagram</Link></li>
                         <li><a href="tel:+919546083369">📞 Call Us Now</a></li>
                         <li><Link href="mailto:aasthaedu.2017@gmail.com">✉️ Email Us</Link></li>

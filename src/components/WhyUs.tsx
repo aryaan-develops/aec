@@ -11,7 +11,9 @@ const reasons = [
     { num: '04', title: '100% Transparent', desc: 'No hidden charges ever. Complete transparency in all services, fees, and admission processes.' },
     { num: '05', title: 'Post-Admission Support', desc: 'We stay with students after admission — hostel guidance, orientation, and smooth college transition.' },
     { num: '06', title: 'Free Initial Consultation', desc: 'Our first session is always free. Come in, talk to us, and leave with clarity — no commitment needed.' },
-    { num: '07', title: 'Legal Proofs & Verification', desc: 'Total peace of mind. We share all necessary court papers, legal proofs, and verified documents to ensure complete legitimacy.' }
+    { num: '07', title: 'Legal Proofs & Verification', desc: 'Total peace of mind. We share all necessary court papers, legal proofs, and verified documents to ensure complete legitimacy.' },
+    { num: '08', title: 'Regional Roots', desc: 'Since 2017, we have been a trusted name in Jamshedpur, understanding local student needs perfectly.' },
+    { num: '09', title: 'Strategic Career Maps', desc: "We don't just find colleges; we build 5-year strategic career maps tailored to your unique vision." }
 ];
 
 const WhyUs: React.FC = () => {

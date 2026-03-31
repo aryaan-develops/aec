@@ -50,17 +50,14 @@ const Navbar: React.FC = () => {
                         className={styles.logoWrapper}
                     >
                         <Image 
-                            src="/logo.jpg" 
-                            alt="Aastha Education Consultancy Logo" 
-                            width={50} 
-                            height={50}
+                            src="/nav_logo.png" 
+                            alt="AEC Logo" 
+                            width={65} 
+                            height={65}
                             className={styles.logoImage}
+                            unoptimized={true}
                         />
                     </motion.div>
-                    <div className={styles.logoText}>
-                        <span className={styles.primaryText}>Aastha Education</span>
-                        <span className={styles.secondaryText}>Consultancy</span>
-                    </div>
                 </Link>
 
                 <ul className={styles.navLinks}>
