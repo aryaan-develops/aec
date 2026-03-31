@@ -53,8 +53,7 @@ const CounsellorSchema = new Schema({
     name: { type: String, required: true },
     bio: { type: String },
     phone: { type: String },
-    email: { type: String },
-    photo: { type: String }
+    email: { type: String }
 }, { timestamps: true });
 
 export const Counsellor = models.Counsellor || model('Counsellor', CounsellorSchema);

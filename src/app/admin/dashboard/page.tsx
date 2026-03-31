@@ -10,7 +10,6 @@ interface Counsellor {
     bio: string;
     email: string;
     phone: string;
-    photo: string;
 }
 
 interface Lead {
@@ -73,7 +72,7 @@ export default function AdminDashboard() {
     const [newNotice, setNewNotice] = useState({ title: '', content: '', type: 'info', date: '', phone: '', email: '' });
     const [newReview, setNewReview] = useState({ name: '', role: '', text: '', avatar: '' });
     const [newCollege, setNewCollege] = useState({ name: '', excellence: '', tags: '', image: '', link: '', location: '' });
-    const [newCounsellor, setNewCounsellor] = useState({ name: '', bio: '', email: '', phone: '', photo: '' });
+    const [newCounsellor, setNewCounsellor] = useState({ name: '', bio: '', email: '', phone: '' });
 
     const fetchData = async () => {
         try {
@@ -142,8 +141,7 @@ export default function AdminDashboard() {
                 name: item.name,
                 bio: item.bio,
                 email: item.email,
-                phone: item.phone || '',
-                photo: item.photo || ''
+                phone: item.phone || ''
             });
             setIsCounsellorModalOpen(true);
         }
@@ -171,16 +169,6 @@ export default function AdminDashboard() {
         }
     };
 
-    const handleCounsellorImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const file = e.target.files?.[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onloadend = () => {
-                setNewCounsellor({ ...newCounsellor, photo: reader.result as string });
-            };
-            reader.readAsDataURL(file);
-        }
-    };
 
     const deleteItem = async (endpoint: string, id: string) => {
         if (!confirm('Are you sure?')) return;
@@ -477,24 +465,12 @@ export default function AdminDashboard() {
                         <h3>{editId ? 'Edit Expert' : 'Add Expert'}</h3>
                         <div className={styles.formGroup}><label>Name</label><input type="text" placeholder="e.g. Dr. Amit Sharma" value={newCounsellor.name} onChange={e => setNewCounsellor({ ...newCounsellor, name: e.target.value })} /></div>
                         
-                        <div className={styles.formGroup}>
-                            <label>Counsellor Photo</label>
-                            <input 
-                                type="file" 
-                                accept="image/*" 
-                                className={styles.fileInput}
-                                onChange={handleCounsellorImageUpload} 
-                            />
-                            {newCounsellor.photo && (
-                                <img src={newCounsellor.photo} alt="Preview" className={styles.imgPreview} style={{ borderRadius: '12px', width: '120px', height: '150px', objectFit: 'cover', margin: '10px auto', display: 'block' }} />
-                            )}
-                        </div>
 
                         <div className={styles.formGroup}><label>Email</label><input type="text" placeholder="amit@aastha.com" value={newCounsellor.email} onChange={e => setNewCounsellor({ ...newCounsellor, email: e.target.value })} /></div>
                         <div className={styles.formGroup}><label>Phone</label><input type="text" placeholder="+91 00000 00000" value={newCounsellor.phone} onChange={e => setNewCounsellor({ ...newCounsellor, phone: e.target.value })} /></div>
                         <div className={styles.formGroup}><label>Bio</label><textarea placeholder="Brief history and expertise..." value={newCounsellor.bio} onChange={e => setNewCounsellor({ ...newCounsellor, bio: e.target.value })}></textarea></div>
                         
-                        <button className={styles.addBtn} style={{ background: '#6366f1', width: '100%', marginBottom: '10px', padding: '14px' }} onClick={() => saveItem('counsellors', newCounsellor, () => setIsCounsellorModalOpen(false), () => { setNewCounsellor({ name: '', bio: '', email: '', phone: '', photo: '' }); setEditId(null); })}>Save Expert Details</button>
+                        <button className={styles.addBtn} style={{ background: '#6366f1', width: '100%', marginBottom: '10px', padding: '14px' }} onClick={() => saveItem('counsellors', newCounsellor, () => setIsCounsellorModalOpen(false), () => { setNewCounsellor({ name: '', bio: '', email: '', phone: '' }); setEditId(null); })}>Save Expert Details</button>
                         <button className={styles.actionsBtn} style={{ width: '100%', padding: '12px' }} onClick={() => { setIsCounsellorModalOpen(false); setEditId(null); }}>Discard Changes</button>
                     </div>
                 </div>

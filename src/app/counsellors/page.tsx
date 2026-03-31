@@ -1,7 +1,7 @@
 "use client"
+// Updated: counselor card layout
 
 import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -14,7 +14,6 @@ interface Counsellor {
     bio: string;
     phone: string;
     email: string;
-    photo: string;
 }
 
 export default function CounsellorsPage() {
@@ -100,16 +99,6 @@ export default function CounsellorsPage() {
                                     variants={itemVariants}
                                     whileHover={{ y: -8 }}
                                 >
-                                    <div className={styles.photoContainer}>
-                                        <Image 
-                                            src={c.photo || '/default-counselor.jpg'} 
-                                            alt={c.name} 
-                                            fill
-                                            sizes="(max-width: 768px) 100vw, 33vw"
-                                            className={styles.photo} 
-                                        />
-                                        <div className={styles.overlay}></div>
-                                    </div>
                                     <div className={styles.cardInfo}>
                                         <div className={styles.cardHeaderSmall}>
                                             <h3 className={styles.cName}>{c.name}</h3>
