@@ -47,7 +47,7 @@
 }
 
 .logoText {
-    display: flex;
+    display: none;
     flex-direction: column;
     font-family: var(--font-serif);
     color: var(--uv3);
@@ -202,11 +202,14 @@
 @media (max-width: 860px) {
     .navLinks { display: none; }
     .hamburger { display: flex; }
+    .logoText { display: flex; }
 }
 
 @media (max-width: 480px) {
     .cta { display: none; }
-    .logoText { font-size: 0.85rem; }
+    .logo { gap: 8px; }
+    .primaryText { font-size: 1rem; }
+    .secondaryText { font-size: 0.7rem; }
 }
 
 .liveBadge {

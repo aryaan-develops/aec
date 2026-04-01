@@ -58,6 +58,10 @@ const Navbar: React.FC = () => {
                             unoptimized={true}
                         />
                     </motion.div>
+                    <div className={styles.logoText}>
+                        <span className={styles.primaryText}>Aastha Consultancy</span>
+                        <span className={styles.secondaryText}>Education</span>
+                    </div>
                 </Link>
 
                 <ul className={styles.navLinks}>
