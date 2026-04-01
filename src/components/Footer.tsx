@@ -48,7 +48,7 @@ const Footer: React.FC = () => {
                     <h4>Quick Reach</h4>
                     <ul>
                         <li><Link href="https://wa.me/919591394618" target="_blank">💬 WhatsApp Us</Link></li>
-                        <li><Link href="https://t.me/+919546083369" target="_blank">✈️ Telegram</Link></li>
+                        <li><Link href="https://t.me/+919591394618" target="_blank">✈️ Telegram</Link></li>
                         <li><Link href="https://www.instagram.com/aastha_education_?igsh=MTZsaGVoZnYxa251cA==" target="_blank">📸 Instagram</Link></li>
                         <li><a href="tel:+919546083369">📞 Call Us Now</a></li>
                         <li><Link href="mailto:aasthaedu.2017@gmail.com">✉️ Email Us</Link></li>
